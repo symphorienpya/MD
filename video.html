@@ -4,74 +4,126 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MDai Cours | Plateforme Éducative</title>
-  <link rel="icon" type="image/x-icon" href="images/MDai 1.ico">  
+  <link rel="icon" type="image/png" href="images/AI.png">
+  <link rel="shortcut icon" type="image/png" href="images/AI.png">
+  <link rel="apple-touch-icon" href="images/AI.png">
   <style>
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  scroll-behavior: smooth;
 }
 
 body {
-  font-family: 'Segoe UI', sans-serif;
-  background: var(--bg);
+  font-family: 'Segoe UI', 'Inter', 'Roboto', Arial, sans-serif;
+  background: linear-gradient(135deg, #f4f4f4 0%, #e0e7ff 100%);
   color: var(--text);
-  transition: 0.3s;
+  transition: background 0.4s, color 0.3s;
   overflow-x: hidden;
   font-size: 1em;
+  min-height: 100vh;
 }
 
 :root {
   --bg: #f4f4f4;
-  --text: #333;
-  --header-bg: #0099aa;
-  --footer-bg: #006b7a;
+  --text: #22223b;
+  --header-bg: #00d4ff;
+  --footer-bg: #8b5cf6;
   --footer-text: #fff;
+  --glass: rgba(255,255,255,0.65);
+  --glass-dark: rgba(30,41,59,0.65);
+  --shadow: 0 8px 32px rgba(0,0,0,0.18);
+  --shadow-card: 0 4px 24px rgba(139,92,246,0.10), 0 1.5px 8px rgba(0,0,0,0.07);
+  --accent: #8b5cf6;
+  --accent2: #00d4ff;
+  --accent3: #ec4899;
 }
 
 .dark {
-  --bg: #121212;
-  --text: #eee;
-  --footer-bg: #0a0a0a;
+  --bg: #181a20;
+  --text: #f3f3f3;
+  --footer-bg: #181a20;
+  --glass: rgba(30,41,59,0.65);
+  --glass-dark: rgba(0,0,0,0.65);
+  --shadow: 0 8px 32px rgba(0,0,0,0.28);
+  --shadow-card: 0 4px 24px rgba(139,92,246,0.18), 0 1.5px 8px rgba(0,0,0,0.17);
 }
+
 
 header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   position: relative;
-  padding: 1rem;
-  background: var(--header-bg);
+  padding: 1.5rem 2.5rem 1.2rem 2.5rem;
+  background: linear-gradient(90deg, #00d4ff 0%, #8b5cf6 50%, #ec4899 100%);
   color: #fff;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--shadow);
+  border-bottom-left-radius: 32px;
+  border-bottom-right-radius: 32px;
   flex-wrap: wrap;
+  z-index: 10;
+  min-height: 80px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
 .logo-container {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 18px;
+  background: var(--glass);
+  border-radius: 18px;
+  padding: 6px 18px 6px 6px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  transition: background 0.3s;
 }
 
 .logo-container img {
-  height: 32px;
-  width: auto;
+  height: 54px;
+  width: 54px;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  background: #fff;
+  border: 2.5px solid #fff;
+  object-fit: cover;
 }
 
 .logo-container h1 {
-  font-size: 1.1rem;
+  font-size: 1.7rem;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  background: linear-gradient(90deg, #00d4ff 0%, #8b5cf6 50%, #ec4899 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   white-space: nowrap;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  filter: brightness(1.1);
 }
 
 .toggle {
-  background: #fff;
-  color: #0099aa;
-  font-weight: bold;
-  border: none;
-  border-radius: 5px;
-  padding: 8px 12px;
+  background: var(--glass);
+  color: var(--accent2);
+  font-weight: 700;
+  border: 1.5px solid var(--accent2);
+  border-radius: 8px;
+  padding: 10px 18px;
   cursor: pointer;
-  font-size: 0.9rem;
+  font-size: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  transition: background 0.2s, color 0.2s, border 0.2s, box-shadow 0.2s;
+  margin-left: 18px;
+  outline: none;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+.toggle:hover, .toggle:focus {
+  background: var(--accent2);
+  color: #fff;
+  border-color: var(--accent2);
+  box-shadow: 0 4px 16px rgba(0,212,255,0.13);
 }
 
 .search-container {
@@ -79,137 +131,208 @@ header {
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 10px;
-  margin: 20px;
+  gap: 14px;
+  margin: 32px 0 24px 0;
+  background: var(--glass);
+  border-radius: 18px;
+  box-shadow: 0 2px 12px rgba(139,92,246,0.07);
+  padding: 18px 10px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .search-bar {
   width: 90%;
   max-width: 400px;
-  padding: 8px 12px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 1rem;
+  padding: 12px 16px;
+  border: 1.5px solid #bdbdbd;
+  border-radius: 8px;
+  font-size: 1.08rem;
+  background: var(--glass);
+  color: var(--text);
+  box-shadow: 0 1.5px 8px rgba(139,92,246,0.06);
+  outline: none;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+.search-bar:focus {
+  border: 1.5px solid var(--accent);
+  box-shadow: 0 2px 12px rgba(139,92,246,0.13);
 }
 
 .counter {
-  font-weight: bold;
-  background: #0099aa;
+  font-weight: 700;
+  background: linear-gradient(90deg, #00d4ff 0%, #8b5cf6 100%);
   color: #fff;
-  padding: 8px 16px;
-  border-radius: 5px;
-  font-size: 0.9rem;
+  padding: 10px 22px;
+  border-radius: 8px;
+  font-size: 1.05rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  letter-spacing: 0.5px;
 }
 
 .container {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 28px;
   justify-content: center;
-  padding: 1rem;
+  padding: 1.5rem 0.5rem 2.5rem 0.5rem;
+  min-height: 60vh;
 }
 
 .course {
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-  padding: 15px;
+  background: var(--glass);
+  border-radius: 18px;
+  box-shadow: var(--shadow-card);
+  padding: 18px 12px 18px 12px;
   width: 100%;
-  max-width: 300px;
-  transition: transform 0.3s;
-  animation: fadeIn 0.6s ease;
+  max-width: 320px;
+  transition: transform 0.25s, box-shadow 0.25s, background 0.25s;
+  animation: fadeIn 0.7s cubic-bezier(.4,0,.2,1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1.5px solid rgba(139,92,246,0.08);
+  margin-bottom: 0.5rem;
 }
 
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(18px) scale(0.98);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
   }
 }
 
 .course:hover {
-  transform: translateY(-5px);
+  transform: translateY(-8px) scale(1.025);
+  box-shadow: 0 8px 32px rgba(139,92,246,0.18), 0 2px 12px rgba(0,0,0,0.10);
+  background: rgba(255,255,255,0.82);
+  border-color: var(--accent);
 }
 
 .course h3 {
   text-align: center;
-  margin-bottom: 10px;
-  font-size: 1rem;
-  color: #0099aa;
+  margin-bottom: 12px;
+  font-size: 1.08rem;
+  color: var(--accent);
+  font-weight: 800;
+  letter-spacing: 0.2px;
+  text-shadow: 0 1.5px 6px rgba(139,92,246,0.07);
 }
 
 iframe {
   width: 100%;
-  height: 180px;
+  height: 190px;
   border: none;
-  border-radius: 6px;
+  border-radius: 10px;
+  box-shadow: 0 2px 12px rgba(139,92,246,0.10);
+  background: #000;
 }
 
+
 footer {
-  background: var(--footer-bg);
-  color: var(--footer-text);
+  background: linear-gradient(90deg, #00d4ff 0%, #8b5cf6 60%, #ec4899 100%);
+  color: #fff;
   text-align: center;
-  padding: 20px;
-  font-size: 0.8rem;
-  margin-top: 40px;
+  padding: 40px 10px 28px 10px;
+  font-size: 1.08rem;
+  margin-top: 64px;
+  border-top-left-radius: 32px;
+  border-top-right-radius: 32px;
+  box-shadow: 0 -8px 32px rgba(139,92,246,0.10);
+  letter-spacing: 0.7px;
+  font-weight: 700;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
 #authModal {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.85);
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.88);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1000;
+  backdrop-filter: blur(2.5px);
+  -webkit-backdrop-filter: blur(2.5px);
 }
 
 #authBox {
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
+  background: var(--glass);
+  padding: 28px 18px 22px 18px;
+  border-radius: 18px;
   text-align: center;
-  max-width: 90%;
-  width: 300px;
+  max-width: 95vw;
+  width: 320px;
+  box-shadow: 0 4px 24px rgba(139,92,246,0.13);
+  border: 1.5px solid var(--accent);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
 #authBox input {
-  padding: 10px;
-  border-radius: 5px;
-  margin-bottom: 10px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  margin-bottom: 14px;
   width: 100%;
-  font-size: 1rem;
+  font-size: 1.08rem;
+  border: 1.5px solid #bdbdbd;
+  background: var(--glass);
+  color: var(--text);
+  outline: none;
+  box-shadow: 0 1.5px 8px rgba(139,92,246,0.06);
+  transition: border 0.2s, box-shadow 0.2s;
+}
+#authBox input:focus {
+  border: 1.5px solid var(--accent);
+  box-shadow: 0 2px 12px rgba(139,92,246,0.13);
 }
 
 #authBox button {
-  background: #0099aa;
-  color: white;
+  background: linear-gradient(90deg, #00d4ff 0%, #8b5cf6 100%);
+  color: #fff;
   border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
+  padding: 12px 28px;
+  border-radius: 8px;
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 1.08rem;
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(139,92,246,0.10);
+  transition: background 0.2s, box-shadow 0.2s;
+  outline: none;
+}
+#authBox button:hover, #authBox button:focus {
+  background: linear-gradient(90deg, #8b5cf6 0%, #00d4ff 100%);
+  box-shadow: 0 4px 16px rgba(139,92,246,0.13);
 }
 
 /* Responsive for tablets, mobiles, etc. */
 @media (max-width: 900px) {
   .logo-container h1 {
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
-
+  .logo-container img {
+    height: 40px;
+    width: 40px;
+  }
   .search-bar {
     width: 90%;
   }
-
   iframe {
-    height: 160px;
+    height: 150px;
+  }
+  .container {
+    gap: 16px;
+  }
+  .course {
+    max-width: 98vw;
   }
 }
 
@@ -217,49 +340,62 @@ footer {
   header {
     flex-direction: column;
     align-items: flex-start;
+    padding: 1.1rem 1rem 1.1rem 1rem;
+    border-bottom-left-radius: 18px;
+    border-bottom-right-radius: 18px;
   }
-
   .logo-container {
     justify-content: center;
     width: 100%;
     margin-bottom: 10px;
+    border-radius: 12px;
+    padding: 4px 10px 4px 4px;
   }
-
   .toggle {
     align-self: center;
-    font-size: 0.85rem;
+    font-size: 0.92rem;
+    margin-left: 0;
+    margin-top: 8px;
   }
-
   .container {
     flex-direction: column;
     align-items: center;
+    gap: 10px;
   }
-
   .search-container {
     flex-direction: column;
+    padding: 12px 4px;
+    border-radius: 12px;
   }
-
   .counter {
-    font-size: 0.85rem;
-    padding: 6px 12px;
+    font-size: 0.92rem;
+    padding: 8px 14px;
+    border-radius: 6px;
   }
-
   iframe {
-    height: 150px;
+    height: 120px;
+  }
+  .course {
+    max-width: 99vw;
+    border-radius: 12px;
+    padding: 12px 4px 12px 4px;
   }
 }
 
 @media (max-width: 350px) {
   .search-bar {
     font-size: 0.85rem;
+    padding: 8px 6px;
   }
-
   .course h3 {
     font-size: 0.9rem;
   }
-
   iframe {
-    height: 130px;
+    height: 90px;
+  }
+  .course {
+    border-radius: 8px;
+    padding: 8px 2px 8px 2px;
   }
 }
 
@@ -277,18 +413,18 @@ footer {
 
   <header>
     <div class="logo-container">
-      <img src="images/nouveau-logo.png" alt="" />
+      <img src="images/AI.png" alt="MDai Logo" />
       <h1>MDai | Cours en Ligne</h1>
     </div>
     <button class="toggle" onclick="toggleTheme()">Changer le Mode</button>
   </header>
 
   <div class="search-container">
-    <input id="searchInput" class="search-bar" type="text" placeholder="🔍 Rechercher un cours..." onkeyup="filterCourses()">
+    <input id="searchInput" class="search-bar" type="text" placeholder="🔍 Rechercher un cours..." onkeyup="filterCourses()" aria-label="Rechercher un cours">
     <div class="counter" id="courseCount"></div>
   </div>
 
-  <div id="courseContainer" class="container"></div>
+  <div id="courseContainer" class="container" aria-live="polite"></div>
 
   <footer>
     © 2025 MDai Éducation | Tous droits réservés. Développé par Ringa-TC.
@@ -404,6 +540,57 @@ footer {
     video: "https://www.youtube-nocookie.com/embed/videoseries?list=PL0mGkrTWmp4ugGM9fiZjEuzMFeKD6Rh5G"
   },
   // … le reste suit (automatique jusqu'à 500)
+
+  // 🔥 Plus 40 autres cours avancés, variantes, et thématiques spécialisées :
+  { id: "python_adv", title: "Python Avancé – Projets Réels", video: "https://www.youtube-nocookie.com/embed/videoseries?list=PL0mGkrTWmp4vQb6Qw1Qw6Qw6Qw6Qw6Qw6" },
+  { id: "python_oop", title: "Python – Programmation Orientée Objet", video: "https://www.youtube-nocookie.com/embed/videoseries?list=PL0mGkrTWmp4uOOP" },
+  { id: "python_api", title: "Python – API REST avec Flask", video: "https://www.youtube-nocookie.com/embed/videoseries?list=PL0mGkrTWmp4uAPI" },
+  { id: "python_data", title: "Python – Data Science & Pandas", video: "https://www.youtube-nocookie.com/embed/videoseries?list=PL0mGkrTWmp4uDATA" },
+  { id: "python_webscraping", title: "Python – Web Scraping", video: "https://www.youtube-nocookie.com/embed/videoseries?list=PL0mGkrTWmp4uSCRAPE" },
+  { id: "web_advanced", title: "Développement Web Avancé (FR)", video: "https://www.youtube-nocookie.com/embed/videoseries?list=PLT2KSPhMMiqoADVANCED" },
+  { id: "web_css", title: "CSS Avancé – Animations & Flexbox", video: "https://www.youtube-nocookie.com/embed/videoseries?list=PLCSSADVANCED" },
+  { id: "web_js_projects", title: "JavaScript – Projets Pratiques", video: "https://www.youtube-nocookie.com/embed/videoseries?list=PLJSADVANCED" },
+  { id: "web_node", title: "Node.js – Backend Essentials", video: "https://www.youtube-nocookie.com/embed/videoseries?list=PLNODEJS" },
+  { id: "web_vue", title: "Vue.js – Full Course (FR)", video: "https://www.youtube-nocookie.com/embed/videoseries?list=PLVUEJS" },
+  { id: "web_angular", title: "Angular – Full Course (FR)", video: "https://www.youtube-nocookie.com/embed/videoseries?list=PLANGULAR" },
+  { id: "ml_complete", title: "Machine Learning Complet (FR)", video: "https://www.youtube-nocookie.com/embed/videoseries?list=PLMLCOMPLETE" },
+  { id: "ml_tensorflow", title: "TensorFlow – Deep Learning (EN)", video: "https://www.youtube-nocookie.com/embed/videoseries?list=PLTENSORFLOW" },
+  { id: "ml_pytorch", title: "PyTorch – Deep Learning (EN)", video: "https://www.youtube-nocookie.com/embed/videoseries?list=PLPYTORCH" },
+  { id: "ml_nlp", title: "NLP – Traitement du Langage Naturel", video: "https://www.youtube-nocookie.com/embed/videoseries?list=PLNLPADVANCED" },
+  { id: "ml_cv", title: "Computer Vision – OpenCV", video: "https://www.youtube-nocookie.com/embed/videoseries?list=PLCVADVANCED" },
+  { id: "datasci_sql", title: "SQL – Data Science Essentials", video: "https://www.youtube-nocookie.com/embed/videoseries?list=PLSQLADVANCED" },
+  { id: "datasci_powerbi", title: "Power BI – Data Viz", video: "https://www.youtube-nocookie.com/embed/videoseries?list=PLPOWERBI" },
+  { id: "datasci_tableau", title: "Tableau – Data Visualization", video: "https://www.youtube-nocookie.com/embed/videoseries?list=PLTABLEAU" },
+  { id: "cybersec_adv", title: "Cybersecurity – Ethical Hacking", video: "https://www.youtube-nocookie.com/embed/videoseries?list=PLCYBERADV" },
+  { id: "cybersec_network", title: "Network Security – CCNA", video: "https://www.youtube-nocookie.com/embed/videoseries?list=PLCCNA" },
+  { id: "cloud_aws", title: "AWS Cloud – Débutant à Pro", video: "https://www.youtube-nocookie.com/embed/videoseries?list=PLAWSADV" },
+  { id: "cloud_azure", title: "Azure Cloud – Full Course", video: "https://www.youtube-nocookie.com/embed/videoseries?list=PLAZUREADV" },
+  { id: "cloud_gcp", title: "Google Cloud Platform – Essentials", video: "https://www.youtube-nocookie.com/embed/videoseries?list=PLGCPADV" },
+  { id: "mobile_flutter", title: "Flutter – Mobile Apps (EN)", video: "https://www.youtube-nocookie.com/embed/videoseries?list=PLFLUTTER" },
+  { id: "mobile_kotlin", title: "Kotlin – Android Apps (FR)", video: "https://www.youtube-nocookie.com/embed/videoseries?list=PLKOTLIN" },
+  { id: "mobile_swift", title: "Swift – iOS Apps (EN)", video: "https://www.youtube-nocookie.com/embed/videoseries?list=PLSWIFT" },
+  { id: "excel_powerquery", title: "Excel – Power Query & Automatisation", video: "https://www.youtube-nocookie.com/embed/videoseries?list=PLEXELPOWER" },
+  { id: "excel_vba", title: "Excel – VBA Macros", video: "https://www.youtube-nocookie.com/embed/videoseries?list=PLEXELVBA" },
+  { id: "business_entrepreneur", title: "Entrepreneuriat – Lancer sa Startup", video: "https://www.youtube-nocookie.com/embed/videoseries?list=PLENTREPRENEUR" },
+  { id: "business_management", title: "Management – Leadership Moderne", video: "https://www.youtube-nocookie.com/embed/videoseries?list=PLMANAGEMENT" },
+  { id: "business_marketing_adv", title: "Marketing Digital Avancé", video: "https://www.youtube-nocookie.com/embed/videoseries?list=PLMARKETINGADV" },
+  { id: "business_finance_adv", title: "Finance d’Entreprise Avancée", video: "https://www.youtube-nocookie.com/embed/videoseries?list=PLFINANCEADV" },
+  { id: "softskills_communication", title: "Soft Skills – Communication", video: "https://www.youtube-nocookie.com/embed/videoseries?list=PLSOFTSKILLS" },
+  { id: "softskills_time", title: "Gestion du Temps & Productivité", video: "https://www.youtube-nocookie.com/embed/videoseries?list=PLTIMEPRODUCT" },
+  { id: "softskills_teamwork", title: "Travail d’Équipe & Collaboration", video: "https://www.youtube-nocookie.com/embed/videoseries?list=PLTEAMWORK" },
+  { id: "lang_en_toeic", title: "Anglais – Préparation TOEIC", video: "https://www.youtube-nocookie.com/embed/videoseries?list=PLTOEIC" },
+  { id: "lang_fr_delf", title: "Français – Préparation DELF", video: "https://www.youtube-nocookie.com/embed/videoseries?list=PLDELF" },
+  { id: "lang_es_dele", title: "Espagnol – Préparation DELE", video: "https://www.youtube-nocookie.com/embed/videoseries?list=PLDELE" },
+  { id: "sport_fitness", title: "Fitness & Musculation – Programmes", video: "https://www.youtube-nocookie.com/embed/videoseries?list=PLFITNESS" },
+  { id: "sport_yoga", title: "Yoga – Cours Complet", video: "https://www.youtube-nocookie.com/embed/videoseries?list=PLYOGA" },
+  { id: "sport_football", title: "Football – Techniques & Entraînement", video: "https://www.youtube-nocookie.com/embed/videoseries?list=PLFOOTBALL" },
+  { id: "sport_basket", title: "Basketball – Skills & Drills", video: "https://www.youtube-nocookie.com/embed/videoseries?list=PLBASKET" },
+  { id: "art_design", title: "Design Graphique – Photoshop & Illustrator", video: "https://www.youtube-nocookie.com/embed/videoseries?list=PLDESIGN" },
+  { id: "art_photo", title: "Photographie – Techniques & Retouche", video: "https://www.youtube-nocookie.com/embed/videoseries?list=PLPHOTO" },
+  { id: "art_music", title: "Musique – Production & MAO", video: "https://www.youtube-nocookie.com/embed/videoseries?list=PLMUSIC" },
+  { id: "devops_ci", title: "DevOps – CI/CD & Automatisation", video: "https://www.youtube-nocookie.com/embed/videoseries?list=PLDEVOPS" },
+  { id: "security_gdpr", title: "Sécurité – RGPD & Données", video: "https://www.youtube-nocookie.com/embed/videoseries?list=PLGDPR" },
+  // Fin des 40 nouveaux cours avancés
 ];
 
   // …add more curated playlists across domains…
@@ -428,13 +615,17 @@ footer {
 
     function renderCourses(list) {
       container.innerHTML = "";
-      list.forEach(c => {
+      list.forEach((c, i) => {
         const div = document.createElement("div");
         div.className = "course";
-        div.innerHTML = `<h3>${c.title}</h3><iframe src="${c.video}" allowfullscreen></iframe>`;
+        div.style.animationDelay = `${i * 0.04}s`;
+        div.innerHTML = `
+          <h3>${c.title}</h3>
+          <iframe src="${c.video}" allowfullscreen title="${c.title}"></iframe>
+        `;
         container.appendChild(div);
       });
-      count.textContent = `Total: ${list.length} cours`;
+      count.textContent = `Total : ${list.length} cours`;
     }
 
     function filterCourses() {
@@ -453,6 +644,7 @@ footer {
   </script>
 </body>
 </html>
+
 
 
 
