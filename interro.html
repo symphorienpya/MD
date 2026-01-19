@@ -4,9 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>InterroPlatform - Advanced Assessment System</title>
-    <link rel="icon" type="image/png" href="images/AI.png" />
-    <link rel="shortcut icon" type="image/png" href="images/AI.png" />
-    <link rel="apple-touch-icon" href="images/AI.png" />
+    <link rel="icon" type="image/png" href="images/logo-removebg-preview.png" />
+    <link rel="shortcut icon" type="image/png" href="images/logo-removebg-preview.png" />
+    <link rel="apple-touch-icon" href="images/logo-removebg-preview.png" />
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
       rel="stylesheet"
@@ -28,26 +28,32 @@
       }
 
       :root {
-        --primary-color: #6366f1;
-        --primary-dark: #4f46e5;
-        --secondary-color: #8b5cf6;
-        --success-color: #10b981;
-        --warning-color: #f59e0b;
-        --error-color: #ef4444;
-        --text-primary: #1f2937;
+        --primary-color: #2563eb;
+        --primary-dark: #1e40af;
+        --secondary-color: #7c3aed;
+        --accent-color: #0891b2;
+        --success-color: #059669;
+        --warning-color: #d97706;
+        --error-color: #dc2626;
+        --text-primary: #111827;
         --text-secondary: #6b7280;
+        --text-light: #f3f4f6;
         --bg-primary: #ffffff;
         --bg-secondary: #f9fafb;
+        --bg-tertiary: #f3f4f6;
         --border-color: #e5e7eb;
         --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
         --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-        --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-        --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.15);
+        --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
+        --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
         --radius-sm: 0.375rem;
         --radius-md: 0.5rem;
         --radius-lg: 0.75rem;
         --radius-xl: 1rem;
+        --radius-2xl: 1.5rem;
         --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        --transition-fast: all 0.15s ease-out;
       }
 
       body {
@@ -55,15 +61,16 @@
           Roboto, sans-serif;
         background: linear-gradient(
           135deg,
-          #667eea 0%,
-          #764ba2 50%,
-          #6366f1 100%
+          #0f172a 0%,
+          #1e293b 50%,
+          #0f172a 100%
         );
         min-height: 100vh;
         line-height: 1.6;
         color: var(--text-primary);
-        animation: gradientShift 10s ease-in-out infinite;
+        animation: gradientShift 15s ease-in-out infinite;
         background-size: 200% 200%;
+        overflow-x: hidden;
       }
 
       @keyframes gradientShift {
@@ -73,6 +80,267 @@
         }
         50% {
           background-position: 100% 50%;
+        }
+      }
+
+      /* Professional Navigation */
+      .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background: rgba(15, 23, 42, 0.95);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        z-index: 1000;
+        animation: slideDownNav 0.5s ease-out;
+      }
+
+      @keyframes slideDownNav {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .nav-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 1rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .nav-brand {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        cursor: pointer;
+        transition: var(--transition);
+      }
+
+      .nav-logo {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        object-fit: cover;
+        box-shadow: var(--shadow-md);
+        transition: var(--transition);
+      }
+
+      .nav-brand:hover .nav-logo {
+        transform: scale(1.1) rotate(5deg);
+        box-shadow: var(--shadow-lg);
+      }
+
+      .brand-text {
+        color: var(--text-light);
+        font-weight: 700;
+        font-size: 1.3rem;
+        background: linear-gradient(135deg, #60a5fa, #3b82f6);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .nav-menu {
+        display: flex;
+        list-style: none;
+        gap: 2rem;
+        margin: 0;
+        padding: 0;
+      }
+
+      .nav-link {
+        color: var(--text-secondary);
+        text-decoration: none;
+        font-weight: 500;
+        position: relative;
+        transition: var(--transition-fast);
+        padding: 0.5rem 0;
+      }
+
+      .nav-link::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+        transition: width 0.3s ease;
+      }
+
+      .nav-link:hover,
+      .nav-link.active {
+        color: var(--text-light);
+      }
+
+      .nav-link:hover::after,
+      .nav-link.active::after {
+        width: 100%;
+      }
+
+      .nav-menu.active {
+        display: flex;
+      }
+
+      .nav-toggle {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+      }
+
+      .nav-toggle span {
+        width: 25px;
+        height: 3px;
+        background: var(--text-light);
+        margin: 4px 0;
+        border-radius: 2px;
+        transition: var(--transition-fast);
+      }
+
+      /* Hero Section */
+      .hero-section {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 6rem 2rem 2rem;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(
+          circle at 20% 50%,
+          rgba(37, 99, 235, 0.15) 0%,
+          transparent 50%
+        ),
+        radial-gradient(
+          circle at 80% 80%,
+          rgba(124, 58, 237, 0.15) 0%,
+          transparent 50%
+        );
+        pointer-events: none;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 800px;
+        animation: fadeInUp 1s ease-out;
+      }
+
+      .hero-title {
+        font-size: 3.5rem;
+        font-weight: 800;
+        color: var(--text-light);
+        margin-bottom: 1rem;
+        background: linear-gradient(135deg, #60a5fa, #3b82f6, #7c3aed);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        line-height: 1.1;
+      }
+
+      .hero-subtitle {
+        font-size: 1.5rem;
+        color: var(--text-secondary);
+        margin-bottom: 2rem;
+        font-weight: 400;
+      }
+
+      .hero-features {
+        display: flex;
+        gap: 1.5rem;
+        justify-content: center;
+        margin-bottom: 2.5rem;
+        flex-wrap: wrap;
+        animation: fadeInUp 1s ease-out 0.2s both;
+      }
+
+      .feature-badge {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        padding: 0.75rem 1.5rem;
+        border-radius: 2rem;
+        color: var(--text-light);
+        font-weight: 500;
+        backdrop-filter: blur(10px);
+        transition: var(--transition);
+      }
+
+      .feature-badge:hover {
+        background: rgba(255, 255, 255, 0.15);
+        border-color: rgba(255, 255, 255, 0.3);
+        transform: translateY(-3px);
+      }
+
+      .feature-badge i {
+        color: var(--primary-color);
+        font-size: 1.2rem;
+      }
+
+      .cta-button {
+        display: inline-block;
+        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        color: white;
+        padding: 1.25rem 3rem;
+        border-radius: 3rem;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1.1rem;
+        transition: var(--transition);
+        box-shadow: var(--shadow-xl);
+        position: relative;
+        overflow: hidden;
+        animation: fadeInUp 1s ease-out 0.4s both;
+      }
+
+      .cta-button::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.2);
+        transition: left 0.5s;
+      }
+
+      .cta-button:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-2xl);
+      }
+
+      .cta-button:hover::before {
+        left: 100%;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
         }
       }
 
@@ -134,14 +402,14 @@
       }
 
       .container {
-        background: rgba(255, 255, 255, 0.95);
+        background: rgba(255, 255, 255, 0.98);
         backdrop-filter: blur(20px);
         border: 1px solid rgba(255, 255, 255, 0.2);
-        border-radius: var(--radius-xl);
-        box-shadow: var(--shadow-xl);
+        border-radius: var(--radius-2xl);
+        box-shadow: var(--shadow-2xl);
         margin: 2rem auto;
-        padding: 3rem;
-        max-width: 1200px;
+        padding: 4rem;
+        max-width: 1100px;
         animation: slideInUp 0.8s ease-out;
         position: relative;
         overflow: hidden;
@@ -153,13 +421,14 @@
         top: 0;
         left: 0;
         right: 0;
-        height: 4px;
+        height: 5px;
         background: linear-gradient(
           90deg,
           var(--primary-color),
-          var(--secondary-color)
+          var(--secondary-color),
+          var(--accent-color)
         );
-        border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+        border-radius: var(--radius-2xl) var(--radius-2xl) 0 0;
       }
 
       @keyframes slideInUp {
@@ -175,7 +444,7 @@
 
       .header {
         text-align: center;
-        margin-bottom: 3rem;
+        margin-bottom: 4rem;
         animation: fadeInDown 1s ease-out 0.3s both;
       }
 
@@ -191,31 +460,33 @@
       }
 
       .logo {
-        width: 80px;
-        height: 80px;
-        margin: 0 auto 1.5rem;
+        width: 90px;
+        height: 90px;
+        margin: 0 auto 2rem;
         border-radius: 50%;
         overflow: hidden;
         box-shadow: var(--shadow-lg);
         animation: pulse 2s ease-in-out infinite;
         position: relative;
+        border: 4px solid var(--primary-color);
       }
 
       .logo::before {
         content: "";
         position: absolute;
-        top: -2px;
-        left: -2px;
-        right: -2px;
-        bottom: -2px;
+        top: -3px;
+        left: -3px;
+        right: -3px;
+        bottom: -3px;
         background: linear-gradient(
           45deg,
           var(--primary-color),
-          var(--secondary-color)
+          var(--secondary-color),
+          var(--accent-color)
         );
         border-radius: 50%;
         z-index: -1;
-        animation: rotate 3s linear infinite;
+        animation: rotate 4s linear infinite;
       }
 
       @keyframes pulse {
@@ -224,7 +495,7 @@
           transform: scale(1);
         }
         50% {
-          transform: scale(1.05);
+          transform: scale(1.08);
         }
       }
 
@@ -247,7 +518,7 @@
       .header h1 {
         color: var(--text-primary);
         font-weight: 800;
-        font-size: 2.5rem;
+        font-size: 2.8rem;
         margin-bottom: 0.5rem;
         background: linear-gradient(
           135deg,
@@ -257,12 +528,15 @@
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
+        letter-spacing: -0.5px;
       }
 
       .header p {
         color: var(--text-secondary);
         font-size: 1.1rem;
-        font-weight: 500;
+        font-weight: 400;
+        max-width: 600px;
+        margin: 0 auto;
       }
 
       .form-section {
@@ -306,16 +580,20 @@
       label {
         font-weight: 600;
         color: var(--text-primary);
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.75rem;
         display: flex;
         align-items: center;
-        gap: 0.5rem;
+        gap: 0.6rem;
         font-size: 0.95rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
       }
 
       label i {
         color: var(--primary-color);
-        font-size: 1.1rem;
+        font-size: 1.2rem;
+        width: 20px;
+        text-align: center;
       }
 
       select,
@@ -323,7 +601,7 @@
       input[type="email"],
       textarea {
         width: 100%;
-        padding: 1rem 1.25rem;
+        padding: 1.2rem 1.5rem;
         border: 2px solid var(--border-color);
         border-radius: var(--radius-lg);
         font-size: 1rem;
@@ -338,15 +616,26 @@
       textarea:focus {
         outline: none;
         border-color: var(--primary-color);
-        box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
-        transform: translateY(-1px);
+        box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
+        transform: translateY(-2px);
       }
 
       select:hover,
       input:hover,
       textarea:hover {
         border-color: var(--primary-dark);
+        box-shadow: var(--shadow-md);
         transform: translateY(-1px);
+      }
+
+      select {
+        cursor: pointer;
+        appearance: none;
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+        background-repeat: no-repeat;
+        background-position: right 1.5rem center;
+        background-size: 1.2em;
+        padding-right: 2.5rem;
       }
 
       .status-message {
@@ -427,10 +716,10 @@
       }
 
       .question-item {
-        background: var(--bg-primary);
+        background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
         border: 2px solid var(--border-color);
         border-radius: var(--radius-xl);
-        padding: 2rem;
+        padding: 2.5rem;
         margin: 1.5rem 0;
         box-shadow: var(--shadow-md);
         transition: var(--transition);
@@ -445,19 +734,21 @@
         top: 0;
         left: 0;
         width: 100%;
-        height: 4px;
+        height: 5px;
         background: linear-gradient(
           90deg,
           var(--primary-color),
-          var(--secondary-color)
+          var(--secondary-color),
+          var(--accent-color)
         );
         transform: scaleX(0);
+        transform-origin: left;
         transition: transform 0.3s ease;
       }
 
       .question-item:hover {
         border-color: var(--primary-color);
-        transform: translateY(-4px);
+        transform: translateY(-6px);
         box-shadow: var(--shadow-xl);
       }
 
@@ -468,7 +759,7 @@
       @keyframes scaleIn {
         from {
           opacity: 0;
-          transform: scale(0.9);
+          transform: scale(0.95);
         }
         to {
           opacity: 1;
@@ -478,30 +769,31 @@
 
       .question-header {
         display: flex;
-        align-items: center;
-        gap: 1.5rem;
-        margin-bottom: 1.5rem;
+        align-items: flex-start;
+        gap: 2rem;
+        margin-bottom: 2rem;
         padding-bottom: 1.5rem;
-        border-bottom: 2px solid var(--bg-secondary);
+        border-bottom: 2px solid var(--border-color);
       }
 
       .question-number {
         background: linear-gradient(
           135deg,
           var(--primary-color),
-          var(--primary-dark)
+          var(--secondary-color)
         );
         color: white;
-        width: 50px;
-        height: 50px;
+        width: 60px;
+        height: 60px;
         border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-weight: 700;
-        font-size: 1.2rem;
-        box-shadow: var(--shadow-md);
+        font-weight: 800;
+        font-size: 1.3rem;
+        box-shadow: var(--shadow-lg);
         animation: bounce 2s ease-in-out infinite;
+        flex-shrink: 0;
       }
 
       @keyframes bounce {
@@ -522,111 +814,140 @@
 
       .question-text {
         flex: 1;
-        font-size: 1.1rem;
+        font-size: 1.15rem;
         font-weight: 600;
         color: var(--text-primary);
-        line-height: 1.5;
+        line-height: 1.6;
       }
 
       .question-type {
-        background: linear-gradient(135deg, var(--secondary-color), #a855f7);
+        background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
         color: white;
-        padding: 0.5rem 1rem;
+        padding: 0.6rem 1.3rem;
         border-radius: 2rem;
         font-size: 0.85rem;
         font-weight: 600;
-        box-shadow: var(--shadow-sm);
+        box-shadow: var(--shadow-md);
+        white-space: nowrap;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
       }
 
       .option-item {
         display: flex;
         align-items: center;
-        gap: 1rem;
-        padding: 1.25rem 1.5rem;
+        gap: 1.25rem;
+        padding: 1.5rem 2rem;
         border: 2px solid var(--border-color);
         border-radius: var(--radius-lg);
-        margin: 0.75rem 0;
+        margin: 1rem 0;
         cursor: pointer;
         transition: var(--transition);
         background: var(--bg-secondary);
         font-size: 1rem;
         font-weight: 500;
+        color: var(--text-primary);
       }
 
       .option-item:hover {
         border-color: var(--primary-color);
-        background: rgba(99, 102, 241, 0.05);
+        background: rgba(37, 99, 235, 0.08);
         transform: translateX(8px);
+        box-shadow: var(--shadow-md);
       }
 
       .option-item.selected {
         border-color: var(--primary-color);
         background: linear-gradient(
           135deg,
-          rgba(99, 102, 241, 0.1),
-          rgba(99, 102, 241, 0.05)
+          rgba(37, 99, 235, 0.15),
+          rgba(37, 99, 235, 0.08)
         );
         transform: translateX(8px);
+        box-shadow: var(--shadow-md);
       }
 
       .option-input {
-        width: 22px;
-        height: 22px;
+        width: 24px;
+        height: 24px;
         accent-color: var(--primary-color);
-        transform: scale(1.2);
+        flex-shrink: 0;
+        cursor: pointer;
       }
 
       textarea {
-        min-height: 150px;
+        min-height: 180px;
         resize: vertical;
         font-family: inherit;
-        line-height: 1.6;
+        line-height: 1.7;
       }
 
       .submit-section {
         margin-top: 3rem;
         text-align: center;
-        padding: 2.5rem;
+        padding: 3rem;
         background: linear-gradient(
           135deg,
-          var(--bg-secondary),
-          var(--bg-primary)
+          var(--bg-secondary) 0%,
+          var(--bg-tertiary) 100%
         );
         border-radius: var(--radius-xl);
         border: 2px dashed var(--border-color);
         animation: fadeInUp 0.8s ease-out 1s both;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .submit-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          135deg,
+          rgba(37, 99, 235, 0.05) 0%,
+          rgba(124, 58, 237, 0.05) 100%
+        );
+        pointer-events: none;
       }
 
       .submit-section h3 {
         color: var(--text-primary);
-        font-size: 1.5rem;
+        font-size: 1.6rem;
         font-weight: 700;
-        margin-bottom: 0.75rem;
+        margin-bottom: 1rem;
+        position: relative;
+        z-index: 1;
       }
 
       .submit-section p {
         color: var(--text-secondary);
-        font-size: 1rem;
-        margin-bottom: 2rem;
+        font-size: 1.05rem;
+        margin-bottom: 2.5rem;
+        position: relative;
+        z-index: 1;
       }
 
       .btn-submit {
         background: linear-gradient(
           135deg,
           var(--primary-color),
-          var(--primary-dark)
+          var(--secondary-color)
         );
         color: white;
         border: none;
-        padding: 1.25rem 3rem;
+        padding: 1.3rem 3.5rem;
         border-radius: 3rem;
-        font-size: 1.1rem;
-        font-weight: 600;
+        font-size: 1.15rem;
+        font-weight: 700;
         cursor: pointer;
         transition: var(--transition);
         box-shadow: var(--shadow-lg);
         position: relative;
         overflow: hidden;
+        letter-spacing: 0.5px;
       }
 
       .btn-submit::before {
@@ -639,15 +960,15 @@
         background: linear-gradient(
           90deg,
           transparent,
-          rgba(255, 255, 255, 0.2),
+          rgba(255, 255, 255, 0.3),
           transparent
         );
-        transition: left 0.5s;
+        transition: left 0.6s;
       }
 
       .btn-submit:hover {
         transform: translateY(-3px);
-        box-shadow: var(--shadow-xl);
+        box-shadow: var(--shadow-2xl);
       }
 
       .btn-submit:hover::before {
@@ -658,19 +979,28 @@
         transform: translateY(-1px);
       }
 
+      .btn-submit:disabled {
+        opacity: 0.7;
+        cursor: not-allowed;
+      }
+
       .timer {
         position: fixed;
-        top: 2rem;
+        top: 80px;
         right: 2rem;
-        background: rgba(255, 255, 255, 0.95);
+        background: rgba(255, 255, 255, 0.98);
         backdrop-filter: blur(10px);
-        padding: 1rem 1.5rem;
+        padding: 1.25rem 2rem;
         border-radius: var(--radius-lg);
         box-shadow: var(--shadow-lg);
-        font-weight: 600;
+        font-weight: 700;
         color: var(--text-primary);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        animation: slideInDown 0.5s ease-out 1.5s both;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        animation: slideInDown 0.5s ease-out 0.2s both;
+        font-size: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
       }
 
       @keyframes slideInDown {
@@ -689,7 +1019,7 @@
         display: inline-block;
         width: 20px;
         height: 20px;
-        border: 2px solid currentColor;
+        border: 3px solid currentColor;
         border-radius: 50%;
         border-top-color: transparent;
         animation: spin 1s linear infinite;
@@ -700,6 +1030,242 @@
         to {
           transform: rotate(360deg);
         }
+      }
+
+      /* Recording & Audio Styles */
+      .question-audio-container {
+        background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(124, 58, 237, 0.1));
+        padding: 1.5rem;
+        border-radius: var(--radius-lg);
+        margin: 1rem 0;
+        border: 2px solid var(--border-color);
+      }
+
+      .audio-player {
+        width: 100%;
+        margin: 1rem 0;
+        border-radius: var(--radius-lg);
+        background: var(--bg-secondary);
+      }
+
+      .recording-controls {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      .record-btn {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.8rem 1.5rem;
+        background: linear-gradient(135deg, #ef4444, #dc2626);
+        color: white;
+        border: none;
+        border-radius: 2rem;
+        cursor: pointer;
+        font-weight: 600;
+        transition: var(--transition);
+        font-size: 0.95rem;
+      }
+
+      .record-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(239, 68, 68, 0.3);
+      }
+
+      .record-btn.recording {
+        animation: pulse 1.5s ease-in-out infinite;
+        background: linear-gradient(135deg, #dc2626, #b91c1c);
+      }
+
+      @keyframes pulse {
+        0%, 100% {
+          box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+        }
+        50% {
+          box-shadow: 0 0 0 10px rgba(239, 68, 68, 0);
+        }
+      }
+
+      .stop-btn {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.8rem 1.5rem;
+        background: linear-gradient(135deg, var(--text-secondary), #6b7280);
+        color: white;
+        border: none;
+        border-radius: 2rem;
+        cursor: pointer;
+        font-weight: 600;
+        transition: var(--transition);
+        font-size: 0.95rem;
+      }
+
+      .stop-btn:hover {
+        transform: translateY(-2px);
+        background: linear-gradient(135deg, #6b7280, #4b5563);
+      }
+
+      .recording-timer {
+        font-weight: 700;
+        color: #ef4444;
+        font-size: 1.1rem;
+        min-width: 60px;
+        text-align: center;
+      }
+
+      .recording-indicator {
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        background: #ef4444;
+        border-radius: 50%;
+        margin-right: 0.5rem;
+        animation: blink 1s infinite;
+      }
+
+      @keyframes blink {
+        0%, 50% { opacity: 1; }
+        51%, 100% { opacity: 0; }
+      }
+
+      .playback-controls {
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+        flex-wrap: wrap;
+        margin: 1rem 0;
+      }
+
+      .play-btn, .delete-btn {
+        padding: 0.6rem 1.2rem;
+        border: 2px solid var(--border-color);
+        background: var(--bg-primary);
+        border-radius: 2rem;
+        cursor: pointer;
+        font-weight: 600;
+        transition: var(--transition);
+        font-size: 0.9rem;
+      }
+
+      .play-btn:hover {
+        border-color: var(--primary-color);
+        background: rgba(37, 99, 235, 0.1);
+        color: var(--primary-color);
+      }
+
+      .delete-btn:hover {
+        border-color: #ef4444;
+        background: rgba(239, 68, 68, 0.1);
+        color: #ef4444;
+      }
+
+      .recording-status {
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+        padding: 0.75rem 1rem;
+        background: var(--bg-secondary);
+        border-radius: var(--radius-lg);
+      }
+
+      .reading-passage {
+        background: var(--bg-secondary);
+        padding: 1.5rem;
+        border-left: 4px solid var(--primary-color);
+        border-radius: var(--radius-lg);
+        margin: 1rem 0;
+        line-height: 1.8;
+        font-size: 1rem;
+        color: var(--text-primary);
+      }
+
+      .reading-question {
+        background: linear-gradient(135deg, rgba(37, 99, 235, 0.05), rgba(37, 99, 235, 0.02));
+        padding: 1.5rem;
+        border-radius: var(--radius-lg);
+        margin: 1rem 0;
+        border: 1px solid var(--border-color);
+      }
+
+      .reading-question-title {
+        font-weight: 700;
+        color: var(--primary-color);
+        margin-bottom: 0.75rem;
+        font-size: 1.05rem;
+      }
+
+      .listening-question {
+        background: linear-gradient(135deg, rgba(124, 58, 237, 0.05), rgba(124, 58, 237, 0.02));
+        padding: 1.5rem;
+        border-radius: var(--radius-lg);
+        margin: 1rem 0;
+        border: 1px solid var(--border-color);
+      }
+
+      .waveform-display {
+        height: 60px;
+        background: var(--bg-secondary);
+        border-radius: var(--radius-lg);
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        padding: 1rem;
+        margin: 1rem 0;
+        overflow: hidden;
+      }
+
+      .waveform-bar {
+        width: 3px;
+        height: 20px;
+        background: linear-gradient(180deg, var(--primary-color), var(--secondary-color));
+        border-radius: 2px;
+        animation: wave 0.6s ease-in-out infinite;
+      }
+
+      @keyframes wave {
+        0%, 100% { height: 10px; }
+        50% { height: 40px; }
+      }
+
+      .transcript-box {
+        background: var(--bg-secondary);
+        padding: 1.5rem;
+        border-radius: var(--radius-lg);
+        border: 1px solid var(--border-color);
+        margin: 1rem 0;
+        font-family: 'Courier New', monospace;
+        font-size: 0.95rem;
+        color: var(--text-secondary);
+        max-height: 300px;
+        overflow-y: auto;
+      }
+
+      .question-type-badge {
+        display: inline-block;
+        padding: 0.4rem 0.8rem;
+        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        color: white;
+        border-radius: 1rem;
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 0.75rem;
+      }
+
+      .speaking-badge {
+        background: linear-gradient(135deg, #f97316, #ea580c);
+      }
+
+      .listening-badge {
+        background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+      }
+
+      .reading-badge {
+        background: linear-gradient(135deg, #06b6d4, #0891b2);
       }
 
       /* Responsive Design */
@@ -713,37 +1279,70 @@
           font-size: 2rem;
         }
 
+        .hero-title {
+          font-size: 2.2rem;
+        }
+
         .timer {
-          position: relative;
-          top: auto;
-          right: auto;
+          position: static;
           margin-bottom: 1rem;
           display: inline-block;
         }
 
+        .nav-menu {
+          display: none;
+        }
+
+        .nav-toggle {
+          display: flex;
+        }
+
         .question-header {
           flex-direction: column;
-          gap: 1rem;
+          gap: 1.5rem;
           text-align: center;
         }
 
         .question-number {
           margin: 0 auto;
         }
+
+        .hero-features {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .feature-badge {
+          width: 100%;
+          justify-content: center;
+        }
+
+        .submit-section {
+          padding: 2rem 1.5rem;
+        }
       }
 
       /* Dark mode support */
       @media (prefers-color-scheme: dark) {
         :root {
-          --text-primary: #f9fafb;
+          --text-primary: #f3f4f6;
           --text-secondary: #d1d5db;
           --bg-primary: #1f2937;
           --bg-secondary: #374151;
+          --bg-tertiary: #4b5563;
           --border-color: #4b5563;
         }
 
         .container {
-          background: rgba(31, 41, 55, 0.95);
+          background: rgba(31, 41, 55, 0.98);
+        }
+
+        .timer {
+          background: rgba(31, 41, 55, 0.98);
+        }
+
+        .navbar {
+          background: rgba(15, 23, 42, 0.98);
         }
       }
 
@@ -754,13 +1353,14 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: rgba(0, 0, 0, 0.9);
+        background: rgba(0, 0, 0, 0.95);
         z-index: 10000;
         display: flex;
         align-items: center;
         justify-content: center;
         opacity: 0;
         transition: opacity 0.5s ease;
+        backdrop-filter: blur(5px);
       }
 
       .correction-overlay.show {
@@ -768,15 +1368,16 @@
       }
 
       .correction-content {
-        background: white;
-        border-radius: 20px;
-        padding: 40px;
-        max-width: 90%;
-        max-height: 90%;
+        background: linear-gradient(135deg, #ffffff 0%, #f9fafb 100%);
+        border-radius: 2rem;
+        padding: 3.5rem;
+        max-width: 85%;
+        max-height: 90vh;
         overflow-y: auto;
         box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
         transform: scale(0.8);
         transition: transform 0.5s ease;
+        border: 1px solid rgba(255, 255, 255, 0.3);
       }
 
       .correction-overlay.show .correction-content {
@@ -785,47 +1386,55 @@
 
       .correction-header {
         text-align: center;
-        margin-bottom: 30px;
+        margin-bottom: 3rem;
+        position: relative;
       }
 
       .correction-title {
-        font-size: 2.5em;
-        color: #2563eb;
-        margin-bottom: 10px;
+        font-size: 2.5rem;
+        color: var(--primary-color);
+        margin-bottom: 0.75rem;
         font-weight: 800;
       }
 
       .correction-subtitle {
-        font-size: 1.2em;
-        color: #6b7280;
-        margin-bottom: 20px;
+        font-size: 1.15rem;
+        color: var(--text-secondary);
+        margin-bottom: 1.5rem;
+        font-weight: 500;
       }
 
       .correction-progress {
         width: 100%;
-        height: 8px;
-        background: #e5e7eb;
-        border-radius: 4px;
+        height: 10px;
+        background: var(--bg-tertiary);
+        border-radius: 10px;
         overflow: hidden;
-        margin-bottom: 30px;
+        margin-bottom: 2rem;
       }
 
       .correction-progress-bar {
         height: 100%;
-        background: linear-gradient(90deg, #3b82f6, #1d4ed8);
+        background: linear-gradient(
+          90deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
         width: 0%;
         transition: width 0.3s ease;
+        box-shadow: 0 0 20px rgba(37, 99, 235, 0.5);
       }
 
       .correction-item {
-        margin-bottom: 25px;
-        padding: 20px;
-        background: #f8fafc;
-        border-radius: 12px;
-        border-left: 4px solid #e5e7eb;
+        margin-bottom: 2rem;
+        padding: 2rem;
+        background: var(--bg-secondary);
+        border-radius: var(--radius-xl);
+        border-left: 5px solid var(--border-color);
         opacity: 0;
         transform: translateY(20px);
         transition: all 0.5s ease;
+        box-shadow: var(--shadow-md);
       }
 
       .correction-item.show {
@@ -834,87 +1443,93 @@
       }
 
       .correction-item.correct {
-        border-left-color: #10b981;
-        background: #ecfdf5;
+        border-left-color: var(--success-color);
+        background: linear-gradient(135deg, rgba(5, 150, 105, 0.1), rgba(5, 150, 105, 0.05));
       }
 
       .correction-item.incorrect {
-        border-left-color: #ef4444;
-        background: #fef2f2;
+        border-left-color: var(--error-color);
+        background: linear-gradient(135deg, rgba(220, 38, 38, 0.1), rgba(220, 38, 38, 0.05));
       }
 
       .correction-item.partial {
-        border-left-color: #f59e0b;
-        background: #fffbeb;
+        border-left-color: var(--warning-color);
+        background: linear-gradient(135deg, rgba(217, 119, 6, 0.1), rgba(217, 119, 6, 0.05));
       }
 
       .question-review {
-        font-weight: 600;
-        margin-bottom: 10px;
-        color: #374151;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        color: var(--text-primary);
+        font-size: 1.05rem;
       }
 
       .answer-comparison {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 15px;
-        margin-top: 10px;
+        gap: 1.5rem;
+        margin-top: 1.5rem;
       }
 
       .your-answer,
       .correct-answer {
-        padding: 10px;
-        border-radius: 8px;
-        font-size: 0.9em;
+        padding: 1.5rem;
+        border-radius: var(--radius-lg);
+        font-size: 0.95rem;
+        border: 2px solid;
       }
 
       .your-answer {
-        background: #fee2e2;
-        border: 1px solid #fca5a5;
+        background: rgba(220, 38, 38, 0.1);
+        border-color: var(--error-color);
+        color: #7f1d1d;
       }
 
       .correct-answer {
-        background: #d1fae5;
-        border: 1px solid #6ee7b7;
+        background: rgba(5, 150, 105, 0.1);
+        border-color: var(--success-color);
+        color: #065f46;
       }
 
       .correction-item.correct .your-answer {
-        background: #d1fae5;
-        border: 1px solid #6ee7b7;
+        background: rgba(5, 150, 105, 0.1);
+        border-color: var(--success-color);
+        color: #065f46;
       }
 
       .score-summary {
         text-align: center;
-        margin: 30px 0;
-        padding: 25px;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        margin: 2.5rem 0;
+        padding: 2.5rem;
+        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
         color: white;
-        border-radius: 15px;
+        border-radius: var(--radius-xl);
+        box-shadow: var(--shadow-lg);
       }
 
       .score-circle {
-        width: 120px;
-        height: 120px;
+        width: 140px;
+        height: 140px;
         border-radius: 50%;
         background: white;
-        color: #667eea;
+        color: var(--primary-color);
         display: flex;
         align-items: center;
         justify-content: center;
-        margin: 0 auto 20px;
-        font-size: 2em;
-        font-weight: bold;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        margin: 0 auto 1.5rem;
+        font-size: 2.5rem;
+        font-weight: 800;
+        box-shadow: var(--shadow-xl);
       }
 
       .warning-message {
-        background: #fef3c7;
-        border: 2px solid #f59e0b;
+        background: linear-gradient(135deg, rgba(217, 119, 6, 0.15), rgba(217, 119, 6, 0.1));
+        border: 2px solid var(--warning-color);
         color: #92400e;
-        padding: 20px;
-        border-radius: 12px;
+        padding: 1.75rem;
+        border-radius: var(--radius-lg);
         text-align: center;
-        margin: 20px 0;
+        margin: 2rem 0;
         font-weight: 600;
         animation: pulse 2s infinite;
       }
@@ -931,37 +1546,449 @@
 
       .download-section {
         text-align: center;
-        margin-top: 30px;
-        padding: 25px;
-        background: #f0f9ff;
-        border-radius: 15px;
-        border: 2px solid #0ea5e9;
+        margin-top: 2.5rem;
+        padding: 2rem;
+        background: linear-gradient(135deg, rgba(14, 165, 233, 0.15), rgba(14, 165, 233, 0.1));
+        border-radius: var(--radius-lg);
+        border: 2px solid rgba(14, 165, 233, 0.3);
       }
 
       .btn-download {
-        background: linear-gradient(135deg, #0ea5e9, #0284c7);
+        background: linear-gradient(135deg, var(--accent-color), #0ea5e9);
         color: white;
         border: none;
-        padding: 15px 30px;
-        border-radius: 25px;
-        font-size: 1.1em;
+        padding: 1.2rem 2.5rem;
+        border-radius: 2rem;
+        font-size: 1.1rem;
         font-weight: 600;
         cursor: pointer;
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 15px rgba(14, 165, 233, 0.3);
-        margin: 10px;
+        transition: var(--transition);
+        box-shadow: var(--shadow-lg);
+        margin: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
       }
 
       .btn-download:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(14, 165, 233, 0.4);
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-xl);
       }
 
       .countdown-timer {
-        font-size: 1.5em;
+        font-size: 1.8rem;
+        font-weight: 800;
+        color: var(--error-color);
+        margin: 1rem 0;
+      }
+
+      /* Advanced Features Styles */
+      .dashboard-section {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+        margin: 2rem 0;
+      }
+
+      .stat-card {
+        background: linear-gradient(135deg, var(--bg-secondary), var(--bg-primary));
+        padding: 2rem;
+        border-radius: var(--radius-xl);
+        border: 2px solid var(--border-color);
+        text-align: center;
+        transition: var(--transition);
+        box-shadow: var(--shadow-md);
+      }
+
+      .stat-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-lg);
+        border-color: var(--primary-color);
+      }
+
+      .stat-value {
+        font-size: 2.5rem;
+        font-weight: 800;
+        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin: 0.5rem 0;
+      }
+
+      .stat-label {
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        font-weight: 600;
+      }
+
+      .difficulty-filters {
+        display: flex;
+        gap: 0.75rem;
+        margin: 1.5rem 0;
+        flex-wrap: wrap;
+      }
+
+      .difficulty-btn {
+        padding: 0.6rem 1.5rem;
+        border: 2px solid var(--border-color);
+        background: var(--bg-primary);
+        border-radius: 2rem;
+        cursor: pointer;
+        font-weight: 600;
+        transition: var(--transition);
+        font-size: 0.9rem;
+      }
+
+      .difficulty-btn:hover {
+        border-color: var(--primary-color);
+        background: rgba(37, 99, 235, 0.1);
+      }
+
+      .difficulty-btn.active {
+        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        color: white;
+        border-color: transparent;
+      }
+
+      .difficulty-easy { --difficulty-color: #059669; }
+      .difficulty-medium { --difficulty-color: #d97706; }
+      .difficulty-hard { --difficulty-color: #dc2626; }
+
+      .bookmark-btn {
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 1.5rem;
+        color: var(--text-secondary);
+        transition: var(--transition);
+        padding: 0.5rem;
+      }
+
+      .bookmark-btn.bookmarked {
+        color: var(--warning-color);
+        transform: scale(1.2);
+      }
+
+      .performance-bar {
+        width: 100%;
+        height: 8px;
+        background: var(--border-color);
+        border-radius: 4px;
+        overflow: hidden;
+        margin: 0.75rem 0;
+      }
+
+      .performance-fill {
+        height: 100%;
+        background: linear-gradient(90deg, var(--success-color), var(--secondary-color));
+        transition: width 0.5s ease;
+      }
+
+      .badge-container {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        margin: 1.5rem 0;
+      }
+
+      .achievement-badge {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 1rem;
+        background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(124, 58, 237, 0.1));
+        border: 2px solid var(--border-color);
+        border-radius: var(--radius-lg);
+        text-align: center;
+        font-size: 0.85rem;
+        min-width: 100px;
+        transition: var(--transition);
+      }
+
+      .achievement-badge.unlocked {
+        background: linear-gradient(135deg, rgba(37, 99, 235, 0.2), rgba(124, 58, 237, 0.2));
+        border-color: var(--primary-color);
+        transform: scale(1.05);
+      }
+
+      .achievement-badge.locked {
+        opacity: 0.6;
+      }
+
+      .badge-icon {
+        font-size: 2rem;
+      }
+
+      .performance-chart {
+        background: var(--bg-secondary);
+        padding: 1.5rem;
+        border-radius: var(--radius-lg);
+        margin: 1.5rem 0;
+        border: 2px solid var(--border-color);
+      }
+
+      .chart-bar {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin: 1rem 0;
+      }
+
+      .chart-label {
+        min-width: 100px;
+        font-weight: 600;
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+      }
+
+      .chart-value {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .explanation-section {
+        background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(37, 99, 235, 0.05));
+        border-left: 4px solid var(--primary-color);
+        padding: 1.5rem;
+        border-radius: var(--radius-lg);
+        margin: 1rem 0;
+        display: none;
+      }
+
+      .explanation-section.show {
+        display: block;
+        animation: slideInUp 0.3s ease-out;
+      }
+
+      .explanation-title {
+        font-weight: 700;
+        color: var(--primary-color);
+        margin-bottom: 0.75rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .explanation-content {
+        color: var(--text-secondary);
+        line-height: 1.7;
+      }
+
+      .progress-tracker {
+        background: var(--bg-secondary);
+        padding: 1.5rem;
+        border-radius: var(--radius-lg);
+        margin: 1.5rem 0;
+        border: 2px solid var(--border-color);
+      }
+
+      .progress-item {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 0.75rem 0;
+        border-bottom: 1px solid var(--border-color);
+      }
+
+      .progress-item:last-child {
+        border-bottom: none;
+      }
+
+      .progress-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        color: white;
+        flex-shrink: 0;
+      }
+
+      .progress-icon.completed {
+        background: linear-gradient(135deg, var(--success-color), var(--success-color));
+      }
+
+      .progress-icon.pending {
+        background: linear-gradient(135deg, var(--text-secondary), var(--text-secondary));
+      }
+
+      .progress-info {
+        flex: 1;
+      }
+
+      .progress-name {
+        font-weight: 600;
+        color: var(--text-primary);
+      }
+
+      .progress-detail {
+        font-size: 0.85rem;
+        color: var(--text-secondary);
+      }
+
+      .study-recommendation {
+        background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(16, 185, 129, 0.05));
+        border-left: 4px solid var(--success-color);
+        padding: 1.5rem;
+        border-radius: var(--radius-lg);
+        margin: 1rem 0;
+      }
+
+      .recommendation-title {
+        font-weight: 700;
+        color: var(--success-color);
+        margin-bottom: 0.75rem;
+      }
+
+      .recommendation-list {
+        list-style: none;
+        padding: 0;
+      }
+
+      .recommendation-list li {
+        padding: 0.5rem 0;
+        padding-left: 1.5rem;
+        position: relative;
+        color: var(--text-secondary);
+      }
+
+      .recommendation-list li::before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: var(--success-color);
         font-weight: bold;
-        color: #ef4444;
-        margin: 15px 0;
+      }
+
+      .leaderboard-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.5rem 0;
+      }
+
+      .leaderboard-table th {
+        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        color: white;
+        padding: 1rem;
+        text-align: left;
+        font-weight: 700;
+      }
+
+      .leaderboard-table td {
+        padding: 1rem;
+        border-bottom: 1px solid var(--border-color);
+      }
+
+      .leaderboard-table tr:hover {
+        background: var(--bg-secondary);
+      }
+
+      .rank-badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        font-weight: 700;
+        color: white;
+        font-size: 0.9rem;
+      }
+
+      .rank-badge.rank-1 { background: linear-gradient(135deg, #fbbf24, #f59e0b); }
+      .rank-badge.rank-2 { background: linear-gradient(135deg, #e5e7eb, #d1d5db); }
+      .rank-badge.rank-3 { background: linear-gradient(135deg, #fed7aa, #f97316); }
+      .rank-badge.other { background: var(--text-secondary); }
+
+      .feature-tabs {
+        display: flex;
+        gap: 0.5rem;
+        border-bottom: 2px solid var(--border-color);
+        margin: 2rem 0 1.5rem 0;
+        overflow-x: auto;
+      }
+
+      .feature-tab {
+        padding: 1rem 1.5rem;
+        cursor: pointer;
+        border: none;
+        background: none;
+        font-weight: 600;
+        color: var(--text-secondary);
+        transition: var(--transition);
+        position: relative;
+        white-space: nowrap;
+      }
+
+      .feature-tab:hover {
+        color: var(--text-primary);
+      }
+
+      .feature-tab.active {
+        color: var(--primary-color);
+      }
+
+      .feature-tab.active::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+      }
+
+      .feature-content {
+        display: none;
+        animation: fadeIn 0.3s ease-out;
+      }
+
+      .feature-content.active {
+        display: block;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+        .dashboard-section {
+          grid-template-columns: 1fr;
+        }
+
+        .stat-value {
+          font-size: 2rem;
+        }
+
+        .difficulty-filters {
+          gap: 0.5rem;
+        }
+
+        .difficulty-btn {
+          padding: 0.5rem 1rem;
+          font-size: 0.85rem;
+        }
+
+        .feature-tabs {
+          gap: 0;
+        }
+
+        .feature-tab {
+          padding: 0.75rem 1rem;
+          font-size: 0.9rem;
+        }
       }
     </style>
   </head>
@@ -975,15 +2002,59 @@
       </div>
     </div>
 
+    <!-- Professional Navigation Bar -->
+    <nav class="navbar" id="navbar">
+      <div class="nav-container">
+        <div class="nav-brand">
+          <img src="images/logo.jpg" alt="Logo" class="nav-logo" />
+          <span class="brand-text">InterroPlatform</span>
+        </div>
+        <ul class="nav-menu">
+          <li><a href="#home" class="nav-link active">Home</a></li>
+          <li><a href="#features" class="nav-link">Features</a></li>
+          <li><a href="#assessment" class="nav-link">Assessment</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+        </ul>
+        <div class="nav-toggle" id="navToggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
+      <div class="hero-content">
+        <h1 class="hero-title">Advanced Assessment Platform</h1>
+        <p class="hero-subtitle">AI-Powered Learning & Evaluation System for Modern Education</p>
+        <div class="hero-features">
+          <div class="feature-badge">
+            <i class="fas fa-brain"></i>
+            <span>AI Powered</span>
+          </div>
+          <div class="feature-badge">
+            <i class="fas fa-chart-line"></i>
+            <span>Real-time Analytics</span>
+          </div>
+          <div class="feature-badge">
+            <i class="fas fa-shield-alt"></i>
+            <span>Secure & Reliable</span>
+          </div>
+        </div>
+        <a href="#assessment" class="cta-button">Get Started</a>
+      </div>
+    </section>
+
     <div class="timer" id="timer">⏱️ 00:00:00</div>
 
-    <div class="container">
+    <div class="container" id="assessment">
       <div class="header">
         <div class="logo">
-          <img src="images/AI.png" alt="InterroPlatform Logo" />
+          <img src="images/logo.jpg" alt="InterroPlatform Logo" />
         </div>
-        <h1>InterroPlatform</h1>
-        <p>Advanced AI-Powered Assessment System</p>
+        <h1>Assessment Portal</h1>
+        <p>Complete your interactive assessment and receive instant AI-powered feedback</p>
       </div>
 
       <div class="form-section">
@@ -1058,6 +2129,13 @@
 
           <div id="status-message" class="status-message"></div>
 
+          <div class="difficulty-filters" id="difficulty-filters" style="display: none;">
+            <button type="button" class="difficulty-btn active" data-difficulty="all">All Levels</button>
+            <button type="button" class="difficulty-btn" data-difficulty="easy">Easy</button>
+            <button type="button" class="difficulty-btn" data-difficulty="medium">Medium</button>
+            <button type="button" class="difficulty-btn" data-difficulty="hard">Hard</button>
+          </div>
+
           <div id="questions-container" class="questions-container"></div>
 
           <div id="submit-section" class="submit-section" style="display: none">
@@ -1069,6 +2147,63 @@
           </div>
         </form>
       </div>
+
+      <!-- Analytics & Progress Section -->
+      <div id="analytics-section" style="margin-top: 3rem; display: none;">
+        <div class="feature-tabs">
+          <button class="feature-tab active" data-tab="progress">📈 Progress</button>
+          <button class="feature-tab" data-tab="achievements">🏆 Achievements</button>
+          <button class="feature-tab" data-tab="recommendations">💡 Recommendations</button>
+        </div>
+
+        <!-- Progress Tab -->
+        <div class="feature-content active" data-tab-content="progress">
+          <div class="dashboard-section">
+            <div class="stat-card">
+              <div class="stat-label">Total Attempts</div>
+              <div class="stat-value" id="stat-attempts">0</div>
+              <div class="performance-bar">
+                <div class="performance-fill" style="width: 0%"></div>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-label">Average Score</div>
+              <div class="stat-value" id="stat-average">0%</div>
+              <div class="performance-bar">
+                <div class="performance-fill" id="avg-bar" style="width: 0%"></div>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-label">Total Correct</div>
+              <div class="stat-value" id="stat-correct">0</div>
+              <div class="performance-bar">
+                <div class="performance-fill" style="width: 0%"></div>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-label">Bookmarks</div>
+              <div class="stat-value" id="stat-bookmarks">0</div>
+              <div class="performance-bar">
+                <div class="performance-fill" style="width: 0%"></div>
+              </div>
+            </div>
+          </div>
+          <div class="progress-tracker">
+            <h3 style="margin-top: 0;">Course Progress</h3>
+            <div id="course-progress-list"></div>
+          </div>
+        </div>
+
+        <!-- Achievements Tab -->
+        <div class="feature-content" data-tab-content="achievements">
+          <div class="badge-container" id="achievements-container"></div>
+        </div>
+
+        <!-- Recommendations Tab -->
+        <div class="feature-content" data-tab-content="recommendations">
+          <div id="recommendations-container"></div>
+        </div>
+      </div>
     </div>
 
     <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
@@ -1078,7 +2213,54 @@
       // Initialize the application
       console.log("🚀 InterroPlatform Loading...");
 
-      // EmailJS Configuration - Replace with your actual credentials
+      // ==================== Navigation Setup ====================
+      const navbar = document.getElementById('navbar');
+      const navToggle = document.getElementById('navToggle');
+      const navLinks = document.querySelectorAll('.nav-link');
+
+      // Smooth scroll and nav highlighting
+      navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('href');
+          if (targetId === '#assessment') {
+            document.querySelector('.container').scrollIntoView({ behavior: 'smooth' });
+          } else {
+            const target = document.querySelector(targetId);
+            target?.scrollIntoView({ behavior: 'smooth' });
+          }
+          
+          // Remove active class from all links
+          navLinks.forEach(l => l.classList.remove('active'));
+          // Add active class to clicked link
+          this.classList.add('active');
+        });
+      });
+
+      // Navbar background on scroll
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 50) {
+          navbar.style.background = 'rgba(15, 23, 42, 0.98)';
+        } else {
+          navbar.style.background = 'rgba(15, 23, 42, 0.95)';
+        }
+      });
+
+      // Mobile menu toggle
+      navToggle?.addEventListener('click', function() {
+        const navMenu = document.querySelector('.nav-menu');
+        navMenu?.classList.toggle('active');
+      });
+
+      // Close mobile menu when link is clicked
+      navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          const navMenu = document.querySelector('.nav-menu');
+          navMenu?.classList.remove('active');
+        });
+      });
+
+      // ==================== EmailJS Configuration ====================
       const EMAILJS_CONFIG = {
         publicKey: "YOUR_PUBLIC_KEY", // Replace with your EmailJS public key
         serviceId: "YOUR_SERVICE_ID", // Replace with your EmailJS service ID
@@ -2650,6 +3832,217 @@
             },
           ],
         },
+        
+        // ==================== ADVANCED QUESTION TYPES ====================
+        "Reading Comprehension": {
+          "Assignment 1": [
+            {
+              type: "reading",
+              passage: `The concept of artificial intelligence has evolved dramatically over the past two decades. From its early theoretical foundations in the 1950s, AI has transformed from an academic curiosity into a practical technology reshaping industries worldwide. Machine learning, a subset of AI, enables systems to learn from data without explicit programming. Deep learning, powered by neural networks inspired by biological brains, has achieved remarkable breakthroughs in image recognition, natural language processing, and autonomous systems. However, alongside these advances come significant ethical considerations. Questions about privacy, algorithmic bias, job displacement, and the concentration of power in tech corporations demand careful attention. As AI systems become increasingly integrated into critical domains like healthcare, criminal justice, and financial services, society must develop robust frameworks for responsible AI development and deployment. The challenge lies not merely in advancing technological capabilities, but in ensuring these powerful tools serve humanity's broader interests rather than narrow commercial or political agendas.`,
+              questions: [
+                {
+                  question: "According to the passage, what is machine learning?",
+                  options: [
+                    "A technology from the 1950s",
+                    "Systems that learn from data without explicit programming",
+                    "A form of artificial consciousness",
+                    "The same as deep learning"
+                  ],
+                  correct: "Systems that learn from data without explicit programming"
+                },
+                {
+                  question: "What does the passage identify as a challenge for AI development?",
+                  options: [
+                    "Making AI technology more advanced",
+                    "Reducing the cost of AI systems",
+                    "Ensuring AI serves humanity's broader interests",
+                    "Simplifying neural networks"
+                  ],
+                  correct: "Ensuring AI serves humanity's broader interests"
+                },
+                {
+                  question: "Which of the following is NOT mentioned as an application area?",
+                  options: [
+                    "Image recognition",
+                    "Natural language processing",
+                    "Autonomous vehicles",
+                    "Music composition"
+                  ],
+                  correct: "Music composition"
+                }
+              ]
+            }
+          ],
+          "Assignment 2": [
+            {
+              type: "reading",
+              passage: `Climate change represents one of humanity's most pressing challenges. Rising global temperatures trigger cascading environmental effects: melting polar ice caps accelerate sea-level rise, threatening coastal communities; changing precipitation patterns disrupt agriculture and water availability; and shifting ecosystems force species migration or extinction. The scientific consensus is overwhelming—97% of climate scientists agree human activities, particularly greenhouse gas emissions, are the primary driver of observed warming. Yet political and economic responses remain inadequate. Fossil fuel industries resist regulation, governments face pressure from competing interests, and citizens struggle to balance immediate economic concerns with long-term environmental imperatives. Transitioning to renewable energy, implementing circular economy principles, and protecting natural carbon sinks like forests and wetlands offer pathways forward. However, these solutions require unprecedented international cooperation, substantial investment, and fundamental changes to consumption patterns. The window for preventing the most catastrophic scenarios is rapidly closing, making urgent action imperative.`,
+              questions: [
+                {
+                  question: "What percentage of climate scientists agree on human-caused climate change?",
+                  options: [
+                    "75%",
+                    "85%",
+                    "97%",
+                    "100%"
+                  ],
+                  correct: "97%"
+                },
+                {
+                  question: "Which of these is NOT mentioned as an effect of climate change?",
+                  options: [
+                    "Sea-level rise",
+                    "Changed precipitation patterns",
+                    "Increased volcanic activity",
+                    "Species migration"
+                  ],
+                  correct: "Increased volcanic activity"
+                },
+                {
+                  question: "What does the passage suggest is necessary for addressing climate change?",
+                  options: [
+                    "Individual effort alone",
+                    "International cooperation and investment",
+                    "Waiting for technology solutions",
+                    "Accepting the inevitable"
+                  ],
+                  correct: "International cooperation and investment"
+                }
+              ]
+            }
+          ]
+        },
+
+        "Speaking Skills": {
+          "Assignment 1": [
+            {
+              type: "speaking",
+              question: "Describe your professional background and career goals in 1-2 minutes. Speak clearly about your experience, skills, and where you want to be in 5 years.",
+              guidelines: "Focus on: Clarity, grammar, vocabulary, fluency, pronunciation",
+              timeLimit: 120
+            },
+            {
+              type: "speaking",
+              question: "Give a persuasive speech about why your city/country should invest in renewable energy. Include 3 main arguments. (2-3 minutes)",
+              guidelines: "Structure: Introduction, 3 arguments with examples, conclusion. Evaluate: Persuasiveness, organization, language variety",
+              timeLimit: 180
+            },
+            {
+              type: "speaking",
+              question: "Participate in a role-play: You are applying for a job. Answer the interviewer's questions about your strengths, weaknesses, and why you're interested in the position. (2 minutes)",
+              guidelines: "Skills: Confidence, relevant examples, professional language, active listening",
+              timeLimit: 120
+            }
+          ],
+          "Assignment 2": [
+            {
+              type: "speaking",
+              question: "Explain a complex concept from your field of study to someone unfamiliar with it. Use 2-3 examples. (1-2 minutes)",
+              guidelines: "Criteria: Clarity of explanation, accuracy, examples quality, appropriate vocabulary",
+              timeLimit: 120
+            },
+            {
+              type: "speaking",
+              question: "Debate: Given the topic 'Social media has more benefits than drawbacks', present your position with 3 supporting arguments. (2 minutes)",
+              guidelines: "Evaluate: Logical reasoning, evidence use, articulation, engagement",
+              timeLimit: 120
+            },
+            {
+              type: "speaking",
+              question: "Tell a story about a significant experience that changed your perspective. Include challenges, emotions, and lessons learned. (2-3 minutes)",
+              guidelines: "Assessment: Narrative structure, emotional expression, descriptive language, coherence",
+              timeLimit: 180
+            }
+          ]
+        },
+
+        "Listening Comprehension": {
+          "Assignment 1": [
+            {
+              type: "listening",
+              audioSource: "data:audio/wav;base64,UklGRiYAAABXQVZFZm10IBAAAAABAAEAQB8AAAB9AAACABAAZGF0YQIAAAAAAA==",
+              transcript: "Good morning. Today we'll discuss the future of sustainable energy. Solar power, wind energy, and hydroelectric systems are becoming increasingly viable alternatives to fossil fuels.",
+              questions: [
+                {
+                  question: "What is the main topic of this audio?",
+                  options: [
+                    "The history of energy",
+                    "Sustainable energy alternatives",
+                    "Solar panel manufacturing",
+                    "Electric vehicles"
+                  ],
+                  correct: "Sustainable energy alternatives"
+                },
+                {
+                  question: "Which of these is NOT mentioned as a sustainable energy source?",
+                  options: [
+                    "Solar power",
+                    "Wind energy",
+                    "Geothermal energy",
+                    "Hydroelectric systems"
+                  ],
+                  correct: "Geothermal energy"
+                }
+              ]
+            },
+            {
+              type: "listening",
+              audioSource: "data:audio/wav;base64,UklGRiYAAABXQVZFZm10IBAAAAABAAEAQB8AAAB9AAACABAAZGF0YQIAAAAAAA==",
+              transcript: "The Industrial Revolution transformed manufacturing through mechanization and factory systems. This period, from roughly 1760 to 1840, saw unprecedented technological advancement and social change.",
+              questions: [
+                {
+                  question: "When did the Industrial Revolution primarily occur?",
+                  options: [
+                    "1600-1700",
+                    "1760-1840",
+                    "1850-1920",
+                    "1900-1950"
+                  ],
+                  correct: "1760-1840"
+                },
+                {
+                  question: "What was a key feature of the Industrial Revolution?",
+                  options: [
+                    "Agricultural expansion",
+                    "Mechanization and factory systems",
+                    "Religious reformation",
+                    "Military expansion"
+                  ],
+                  correct: "Mechanization and factory systems"
+                }
+              ]
+            }
+          ],
+          "Assignment 2": [
+            {
+              type: "listening",
+              audioSource: "data:audio/wav;base64,UklGRiYAAABXQVZFZm10IBAAAAABAAEAQB8AAAB9AAACABAAZGF0YQIAAAAAAA==",
+              transcript: "Neuroscience research has revealed that the brain maintains remarkable neuroplasticity throughout life. This ability to form new neural connections means learning and adaptation can occur at any age, challenging previous assumptions about cognitive decline.",
+              questions: [
+                {
+                  question: "What does neuroplasticity mean?",
+                  options: [
+                    "Brain damage recovery",
+                    "The brain's ability to form new neural connections",
+                    "Age-related cognitive decline",
+                    "Memory loss prevention"
+                  ],
+                  correct: "The brain's ability to form new neural connections"
+                },
+                {
+                  question: "According to the passage, when can learning and adaptation occur?",
+                  options: [
+                    "Only in childhood",
+                    "Only in adulthood",
+                    "At any age",
+                    "Never after age 30"
+                  ],
+                  correct: "At any age"
+                }
+              ]
+            }
+          ]
+        }
       };
 
       // Correct answers database for auto-correction
@@ -2980,6 +4373,85 @@
             },
           ],
         },
+        "Reading Comprehension": {
+          "Assignment 1": [
+            {
+              type: "reading",
+              questions: [
+                { correct: 1 },
+                { correct: 2 },
+                { correct: 0 },
+              ],
+            },
+          ],
+          "Assignment 2": [
+            {
+              type: "reading",
+              questions: [
+                { correct: 0 },
+                { correct: 2 },
+                { correct: 1 },
+              ],
+            },
+          ],
+          Examen: [
+            {
+              type: "reading",
+              questions: [
+                { correct: 1 },
+                { correct: 2 },
+                { correct: 0 },
+                { correct: 1 },
+                { correct: 2 },
+              ],
+            },
+          ],
+        },
+        "Speaking Skills": {
+          "Assignment 1": [
+            { type: "speaking", requiresManualReview: true },
+          ],
+          "Assignment 2": [
+            { type: "speaking", requiresManualReview: true },
+          ],
+          Examen: [
+            { type: "speaking", requiresManualReview: true },
+          ],
+        },
+        "Listening Comprehension": {
+          "Assignment 1": [
+            {
+              type: "listening",
+              questions: [
+                { correct: 1 },
+                { correct: 0 },
+                { correct: 2 },
+              ],
+            },
+          ],
+          "Assignment 2": [
+            {
+              type: "listening",
+              questions: [
+                { correct: 2 },
+                { correct: 1 },
+                { correct: 0 },
+              ],
+            },
+          ],
+          Examen: [
+            {
+              type: "listening",
+              questions: [
+                { correct: 0 },
+                { correct: 1 },
+                { correct: 2 },
+                { correct: 1 },
+                { correct: 0 },
+              ],
+            },
+          ],
+        },
       };
 
       // Real-time course selection handler
@@ -3065,6 +4537,9 @@
 
       // Function to load questions
       function loadQuestions(courseName, assessmentType) {
+        // Track assessment start time for achievements
+        window.assessmentStartTime = new Date();
+        
         console.log(
           "📝 Loading questions for:",
           courseName,
@@ -3099,6 +4574,12 @@
                 </div>
             `;
         questionsContainer.appendChild(header);
+
+        // Show difficulty filters
+        const difficultyFilters = document.getElementById("difficulty-filters");
+        if (difficultyFilters) {
+          difficultyFilters.style.display = "flex";
+        }
 
         // Get questions (use sample data or generate)
         let questions = getQuestionsForAssessment(courseName, assessmentType);
@@ -3191,10 +4672,16 @@
             ? questionNumber <= 15 // 75% multiple choice for exams
             : questionNumber <= 3; // 60% multiple choice for assignments
 
+        // Determine difficulty based on question number
+        let difficulty = "easy";
+        if (questionNumber > 10) difficulty = "hard";
+        else if (questionNumber > 5) difficulty = "medium";
+
         if (isMultipleChoice) {
           return {
             question: `${courseName} - Question ${questionNumber}: Sample multiple choice question about ${courseName.toLowerCase()} concepts and principles.`,
             type: "multiple",
+            difficulty: difficulty,
             options: [
               `Option A: First possible answer related to ${courseName}`,
               `Option B: Second possible answer related to ${courseName}`,
@@ -3206,6 +4693,7 @@
           return {
             question: `${courseName} - Question ${questionNumber}: Sample essay question requiring detailed explanation about ${courseName.toLowerCase()} topics and applications.`,
             type: "text",
+            difficulty: difficulty,
             placeholder: `Provide a comprehensive answer about ${courseName.toLowerCase()}. Include examples, explanations, and relevant details in your response...`,
           };
         }
@@ -3215,10 +4703,38 @@
       function createQuestionElement(question, index) {
         const questionDiv = document.createElement("div");
         questionDiv.className = "question-item";
+        questionDiv.setAttribute("data-question-id", `q-${index}`);
+        questionDiv.setAttribute("data-difficulty", question.difficulty || "medium");
+        questionDiv.setAttribute("data-type", question.type || "multiple");
+
+        // Add type badge
+        const typeBadge = document.createElement("div");
+        typeBadge.className = "question-type-badge";
+        if (question.type === "reading") {
+          typeBadge.classList.add("reading-badge");
+          typeBadge.textContent = "📖 Reading";
+        } else if (question.type === "speaking") {
+          typeBadge.classList.add("speaking-badge");
+          typeBadge.textContent = "🎤 Speaking";
+        } else if (question.type === "listening") {
+          typeBadge.classList.add("listening-badge");
+          typeBadge.textContent = "🎧 Listening";
+        } else if (question.type === "multiple") {
+          typeBadge.innerHTML = "📝 Multiple Choice";
+        } else {
+          typeBadge.innerHTML = "✍️ Written";
+        }
+        questionDiv.appendChild(typeBadge);
 
         // Question header
         const questionHeader = document.createElement("div");
         questionHeader.className = "question-header";
+        questionHeader.style.display = "flex";
+        questionHeader.style.justifyContent = "space-between";
+        questionHeader.style.alignItems = "flex-start";
+
+        const questionLeft = document.createElement("div");
+        questionLeft.style.flex = "1";
 
         const questionNumber = document.createElement("div");
         questionNumber.className = "question-number";
@@ -3230,17 +4746,252 @@
 
         const questionType = document.createElement("div");
         questionType.className = "question-type";
-        questionType.textContent =
-          question.type === "multiple" ? "Multiple Choice" : "Written Response";
+        if (question.type === "reading") {
+          questionType.textContent = "Reading Comprehension";
+        } else if (question.type === "speaking") {
+          questionType.textContent = "Speaking Practice";
+        } else if (question.type === "listening") {
+          questionType.textContent = "Listening Test";
+        } else {
+          questionType.textContent =
+            question.type === "multiple" ? "Multiple Choice" : "Written Response";
+        }
 
-        questionHeader.appendChild(questionNumber);
-        questionHeader.appendChild(questionText);
-        questionHeader.appendChild(questionType);
+        questionLeft.appendChild(questionNumber);
+        questionLeft.appendChild(questionText);
+        questionLeft.appendChild(questionType);
+        questionHeader.appendChild(questionLeft);
+
+        // Bookmark button
+        const bookmarkBtn = document.createElement("button");
+        bookmarkBtn.className = "bookmark-btn";
+        bookmarkBtn.innerHTML = "🔖";
+        bookmarkBtn.title = "Bookmark this question";
+        if (advancedFeatures.bookmarks.isBookmarked(`q-${index}`)) {
+          bookmarkBtn.classList.add("bookmarked");
+        }
+        questionHeader.appendChild(bookmarkBtn);
         questionDiv.appendChild(questionHeader);
 
-        // Question content
-        if (question.type === "multiple" && question.options) {
-          // Multiple choice options
+        // ==================== Question Content by Type ====================
+        
+        // READING COMPREHENSION
+        if (question.type === "reading") {
+          const audioContainer = document.createElement("div");
+          audioContainer.className = "question-audio-container reading-question";
+
+          // Passage
+          const passage = document.createElement("div");
+          passage.className = "reading-passage";
+          passage.innerHTML = `<strong>Reading Passage:</strong><br><br>${question.passage}`;
+          audioContainer.appendChild(passage);
+
+          // Reading questions
+          if (question.questions && Array.isArray(question.questions)) {
+            question.questions.forEach((readQ, qIdx) => {
+              const readingQDiv = document.createElement("div");
+              readingQDiv.className = "reading-question";
+              
+              const readingTitle = document.createElement("div");
+              readingTitle.className = "reading-question-title";
+              readingTitle.textContent = `Question ${qIdx + 1}: ${readQ.question}`;
+              readingQDiv.appendChild(readingTitle);
+
+              const optionsContainer = document.createElement("div");
+              readQ.options.forEach((option, optIdx) => {
+                const optionDiv = document.createElement("div");
+                optionDiv.className = "option-item";
+
+                const optionInput = document.createElement("radio");
+                optionInput.type = "radio";
+                optionInput.name = `question_${index}_reading_${qIdx}`;
+                optionInput.value = option;
+                optionInput.className = "option-input";
+                optionInput.setAttribute("data-correct", readQ.correct);
+
+                const optionText = document.createElement("span");
+                optionText.textContent = option;
+
+                optionInput.addEventListener("change", function () {
+                  optionsContainer.querySelectorAll(".option-item").forEach(item => {
+                    item.classList.remove("selected");
+                  });
+                  optionDiv.classList.add("selected");
+                });
+
+                optionDiv.addEventListener("click", function () {
+                  optionInput.checked = true;
+                  optionInput.dispatchEvent(new Event("change"));
+                });
+
+                optionDiv.appendChild(optionInput);
+                optionDiv.appendChild(optionText);
+                optionsContainer.appendChild(optionDiv);
+              });
+              readingQDiv.appendChild(optionsContainer);
+              audioContainer.appendChild(readingQDiv);
+            });
+          }
+
+          questionDiv.appendChild(audioContainer);
+        }
+        // SPEAKING
+        else if (question.type === "speaking") {
+          const speakingContainer = document.createElement("div");
+          speakingContainer.className = "question-audio-container";
+
+          // Guidelines
+          const guidelines = document.createElement("div");
+          guidelines.style.cssText = "background: var(--bg-secondary); padding: 1rem; border-radius: var(--radius-lg); margin: 1rem 0; border-left: 4px solid #f97316;";
+          guidelines.innerHTML = `<strong>📋 Guidelines:</strong><br>${question.guidelines}<br><strong>Time Limit:</strong> ${question.timeLimit} seconds`;
+          speakingContainer.appendChild(guidelines);
+
+          // Recording controls
+          const recordingControls = document.createElement("div");
+          recordingControls.className = "recording-controls";
+
+          const recordBtn = document.createElement("button");
+          recordBtn.type = "button";
+          recordBtn.className = "record-btn";
+          recordBtn.innerHTML = `<span class="recording-indicator" style="display:none;"></span>🎤 Start Recording`;
+          recordBtn.onclick = function() { startRecording(this, index); };
+
+          const stopBtn = document.createElement("button");
+          stopBtn.type = "button";
+          stopBtn.className = "stop-btn";
+          stopBtn.textContent = "⏹️ Stop Recording";
+          stopBtn.style.display = "none";
+          stopBtn.onclick = function() { stopRecording(this, recordBtn, index); };
+
+          const timer = document.createElement("div");
+          timer.className = "recording-timer";
+          timer.textContent = `${question.timeLimit}s`;
+          timer.setAttribute("data-time-limit", question.timeLimit);
+
+          recordingControls.appendChild(recordBtn);
+          recordingControls.appendChild(stopBtn);
+          recordingControls.appendChild(timer);
+          speakingContainer.appendChild(recordingControls);
+
+          // Waveform display
+          const waveform = document.createElement("div");
+          waveform.className = "waveform-display";
+          waveform.setAttribute("data-question-id", `q-${index}`);
+          waveform.style.display = "none";
+          for (let i = 0; i < 20; i++) {
+            const bar = document.createElement("div");
+            bar.className = "waveform-bar";
+            bar.style.animationDelay = `${i * 0.05}s`;
+            waveform.appendChild(bar);
+          }
+          speakingContainer.appendChild(waveform);
+
+          // Playback controls
+          const playback = document.createElement("div");
+          playback.className = "playback-controls";
+          playback.setAttribute("data-question-id", `q-${index}`);
+          playback.style.display = "none";
+
+          const playBtn = document.createElement("button");
+          playBtn.className = "play-btn";
+          playBtn.textContent = "▶️ Play Recording";
+          playBtn.onclick = function() { playRecording(index); };
+
+          const deleteBtn = document.createElement("button");
+          deleteBtn.className = "delete-btn";
+          deleteBtn.textContent = "🗑️ Delete";
+          deleteBtn.onclick = function() { deleteRecording(index); };
+
+          const status = document.createElement("div");
+          status.className = "recording-status";
+          status.setAttribute("data-question-id", `q-${index}`);
+          status.textContent = "No recording yet";
+
+          playback.appendChild(playBtn);
+          playback.appendChild(deleteBtn);
+          playback.appendChild(status);
+          speakingContainer.appendChild(playback);
+
+          // Hidden audio element for playback
+          const audioElement = document.createElement("audio");
+          audioElement.id = `recording_audio_${index}`;
+          audioElement.style.display = "none";
+          speakingContainer.appendChild(audioElement);
+
+          // Hidden input for recording data
+          const recordingInput = document.createElement("input");
+          recordingInput.type = "hidden";
+          recordingInput.name = `question_${index}`;
+          recordingInput.className = "recording-input";
+          recordingInput.setAttribute("data-question-id", `q-${index}`);
+          recordingInput.value = "";
+          speakingContainer.appendChild(recordingInput);
+
+          questionDiv.appendChild(speakingContainer);
+        }
+        // LISTENING
+        else if (question.type === "listening") {
+          const listeningContainer = document.createElement("div");
+          listeningContainer.className = "question-audio-container listening-question";
+
+          // Audio player
+          const audio = document.createElement("audio");
+          audio.className = "audio-player";
+          audio.controls = true;
+          audio.src = question.audioSource;
+          listeningContainer.appendChild(audio);
+
+          // Listening comprehension questions
+          if (question.questions && Array.isArray(question.questions)) {
+            question.questions.forEach((listenQ, qIdx) => {
+              const listenQDiv = document.createElement("div");
+              listenQDiv.className = "reading-question";
+              
+              const listenTitle = document.createElement("div");
+              listenTitle.className = "reading-question-title";
+              listenTitle.textContent = `Question ${qIdx + 1}: ${listenQ.question}`;
+              listenQDiv.appendChild(listenTitle);
+
+              const optionsContainer = document.createElement("div");
+              listenQ.options.forEach((option, optIdx) => {
+                const optionDiv = document.createElement("div");
+                optionDiv.className = "option-item";
+
+                const optionInput = document.createElement("input");
+                optionInput.type = "radio";
+                optionInput.name = `question_${index}_listening_${qIdx}`;
+                optionInput.value = option;
+                optionInput.className = "option-input";
+                optionInput.setAttribute("data-correct", listenQ.correct);
+
+                const optionText = document.createElement("span");
+                optionText.textContent = option;
+
+                optionInput.addEventListener("change", function () {
+                  optionsContainer.querySelectorAll(".option-item").forEach(item => {
+                    item.classList.remove("selected");
+                  });
+                  optionDiv.classList.add("selected");
+                });
+
+                optionDiv.addEventListener("click", function () {
+                  optionInput.checked = true;
+                  optionInput.dispatchEvent(new Event("change"));
+                });
+
+                optionDiv.appendChild(optionInput);
+                optionDiv.appendChild(optionText);
+                optionsContainer.appendChild(optionDiv);
+              });
+              listenQDiv.appendChild(optionsContainer);
+              listeningContainer.appendChild(listenQDiv);
+            });
+          }
+
+          questionDiv.appendChild(listeningContainer);
+        }
+        // MULTIPLE CHOICE
+        else if (question.type === "multiple" && question.options) {
           const optionsContainer = document.createElement("div");
 
           question.options.forEach((option, optIndex) => {
@@ -3256,15 +5007,12 @@
             const optionText = document.createElement("span");
             optionText.textContent = option;
 
-            // Add selection effect
             optionInput.addEventListener("change", function () {
-              // Remove selection from all options in this question
               optionsContainer
                 .querySelectorAll(".option-item")
                 .forEach((item) => {
                   item.classList.remove("selected");
                 });
-              // Add selection to current option
               optionDiv.classList.add("selected");
             });
 
@@ -3279,14 +5027,14 @@
           });
 
           questionDiv.appendChild(optionsContainer);
-        } else {
-          // Text question
+        }
+        // TEXT RESPONSE
+        else {
           const textarea = document.createElement("textarea");
           textarea.name = `question_${index}`;
           textarea.placeholder =
             question.placeholder || "Write your detailed answer here...";
 
-          // Auto-expand functionality
           textarea.addEventListener("input", function () {
             this.style.height = "auto";
             this.style.height = Math.max(120, this.scrollHeight) + "px";
@@ -3296,6 +5044,74 @@
         }
 
         return questionDiv;
+      }
+
+      // Recording functions
+      let mediaRecorder;
+      let recordedChunks = {};
+
+      async function startRecording(btn, questionIndex) {
+        try {
+          const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+          mediaRecorder = new MediaRecorder(stream);
+          recordedChunks[questionIndex] = [];
+
+          mediaRecorder.ondataavailable = (e) => {
+            recordedChunks[questionIndex].push(e.data);
+          };
+
+          mediaRecorder.onstop = () => {
+            const blob = new Blob(recordedChunks[questionIndex], { type: 'audio/mp3' });
+            const url = URL.createObjectURL(blob);
+            document.getElementById(`recording_audio_${questionIndex}`).src = url;
+            document.querySelector(`[data-question-id="q-${questionIndex}"] .recording-input`).value = url;
+            document.querySelector(`[data-question-id="q-${questionIndex}"] .playback-controls`).style.display = "flex";
+            document.querySelector(`[data-question-id="q-${questionIndex}"] .recording-status`).textContent = "✅ Recording saved";
+            stream.getTracks().forEach(track => track.stop());
+          };
+
+          mediaRecorder.start();
+          btn.classList.add("recording");
+          btn.innerHTML = `<span class="recording-indicator"></span>Recording...`;
+          btn.disabled = true;
+          document.querySelector(`[data-question-id="q-${questionIndex}"] .stop-btn`).style.display = "inline-flex";
+          document.querySelector(`[data-question-id="q-${questionIndex}"] .waveform-display`).style.display = "flex";
+          
+          // Start timer
+          let timeLeft = parseInt(document.querySelector(`[data-question-id="q-${questionIndex}"] .recording-timer`).getAttribute("data-time-limit"));
+          const timerInterval = setInterval(() => {
+            timeLeft--;
+            document.querySelector(`[data-question-id="q-${questionIndex}"] .recording-timer`).textContent = `${timeLeft}s`;
+            if (timeLeft <= 0) {
+              clearInterval(timerInterval);
+              stopRecording(document.querySelector(`[data-question-id="q-${questionIndex}"] .stop-btn`), btn, questionIndex);
+            }
+          }, 1000);
+        } catch (error) {
+          alert("Microphone access denied. Please allow microphone access to record.");
+        }
+      }
+
+      function stopRecording(stopBtn, recordBtn, questionIndex) {
+        mediaRecorder.stop();
+        recordBtn.classList.remove("recording");
+        recordBtn.innerHTML = "🎤 Start Recording";
+        recordBtn.disabled = false;
+        stopBtn.style.display = "none";
+      }
+
+      function playRecording(questionIndex) {
+        const audio = document.getElementById(`recording_audio_${questionIndex}`);
+        if (audio.src) {
+          audio.play();
+        }
+      }
+
+      function deleteRecording(questionIndex) {
+        document.getElementById(`recording_audio_${questionIndex}`).src = "";
+        document.querySelector(`[data-question-id="q-${questionIndex}"] .recording-input`).value = "";
+        document.querySelector(`[data-question-id="q-${questionIndex}"] .playback-controls`).style.display = "none";
+        document.querySelector(`[data-question-id="q-${questionIndex}"] .recording-status`).textContent = "No recording";
       }
 
       // Enhanced Form submission handler with Auto-Correction and EmailJS
@@ -3404,72 +5220,124 @@
 
         const correctAnswersForAssessment =
           correctAnswers[courseName]?.[assessmentType];
-        if (!correctAnswersForAssessment) {
-          console.warn(
-            "No correct answers found for:",
-            courseName,
-            assessmentType
-          );
-          return {
-            score: 0,
-            totalQuestions: studentAnswers.length,
-            corrections: [],
-          };
-        }
-
+        
         let correctCount = 0;
         const corrections = [];
 
         studentAnswers.forEach((answer, index) => {
-          const correctAnswer = correctAnswersForAssessment[index];
-          if (!correctAnswer) return;
-
           let isCorrect = false;
           let correctText = "";
           let score = 0;
+          let displayAnswer = answer.answer;
 
-          if (correctAnswer.type === "multiple") {
-            // For multiple choice, check if selected option index matches
-            const questions = sampleQuestions[courseName][assessmentType];
-            const question = questions[index];
-
-            if (question && question.options) {
-              // Find which option was selected
-              let selectedOptionIndex = -1;
-              for (let i = 0; i < question.options.length; i++) {
-                if (question.options[i] === answer.answer) {
-                  selectedOptionIndex = i;
-                  break;
-                }
-              }
-
-              isCorrect = selectedOptionIndex === correctAnswer.correct;
-              correctText = question.options[correctAnswer.correct];
-              score = isCorrect ? 1 : 0;
+          // ==================== READING COMPREHENSION ====================
+          if (answer.type === "reading") {
+            try {
+              const readingAnswers = JSON.parse(answer.answer);
+              let allCorrect = true;
+              let feedback = [];
+              
+              readingAnswers.forEach((readingAns) => {
+                const isAnswerCorrect = readingAns.answer === readingAns.correct;
+                if (!isAnswerCorrect) allCorrect = false;
+                feedback.push(`${isAnswerCorrect ? "✓" : "✗"} Your answer: "${readingAns.answer}"`);
+              });
+              
+              isCorrect = allCorrect ? true : "partial";
+              score = allCorrect ? 1 : 0.5;
+              correctText = `Reading Comprehension Review:<br>${feedback.join("<br>")}`;
+              displayAnswer = `Multiple reading questions answered. ${allCorrect ? "All correct!" : "Some incorrect"}`;
+            } catch (e) {
+              isCorrect = false;
+              score = 0;
+              correctText = "Reading comprehension answer not provided";
             }
-          } else if (correctAnswer.type === "text") {
-            // For text answers, check for keywords
-            const answerText = answer.answer.toLowerCase();
-            const keywords = correctAnswer.keywords || [];
-            const keywordMatches = keywords.filter((keyword) =>
-              answerText.includes(keyword.toLowerCase())
-            ).length;
-
-            const keywordPercent =
-              keywords.length > 0 ? keywordMatches / keywords.length : 0;
-
-            if (keywordPercent >= 0.6) {
-              isCorrect = true;
-              score = 1;
-            } else if (keywordPercent >= 0.3) {
-              isCorrect = "partial";
+          }
+          // ==================== SPEAKING ====================
+          else if (answer.type === "speaking") {
+            if (answer.recordingStatus === "recorded") {
+              isCorrect = "partial"; // Speaking needs manual review
               score = 0.5;
+              correctText = "🎤 Speaking Response Recorded<br>Your recording has been saved. Manual evaluation by instructor required.";
+              displayAnswer = "Recording submitted - Awaiting instructor evaluation";
             } else {
               isCorrect = false;
               score = 0;
+              correctText = "No speaking response recorded";
+              displayAnswer = "No recording provided";
             }
+          }
+          // ==================== LISTENING ====================
+          else if (answer.type === "listening") {
+            try {
+              const listeningAnswers = JSON.parse(answer.answer);
+              let allCorrect = true;
+              let feedback = [];
+              
+              listeningAnswers.forEach((listenAns) => {
+                const isAnswerCorrect = listenAns.answer === listenAns.correct;
+                if (!isAnswerCorrect) allCorrect = false;
+                feedback.push(`${isAnswerCorrect ? "✓" : "✗"} Your answer: "${listenAns.answer}"`);
+              });
+              
+              isCorrect = allCorrect ? true : "partial";
+              score = allCorrect ? 1 : 0.5;
+              correctText = `Listening Comprehension Review:<br>${feedback.join("<br>")}`;
+              displayAnswer = `Multiple listening questions answered. ${allCorrect ? "All correct!" : "Some incorrect"}`;
+            } catch (e) {
+              isCorrect = false;
+              score = 0;
+              correctText = "Listening comprehension answer not provided";
+            }
+          }
+          // ==================== MULTIPLE CHOICE ====================
+          else if (answer.type === "multiple" && correctAnswersForAssessment) {
+            const correctAnswer = correctAnswersForAssessment[index];
+            if (correctAnswer && correctAnswer.type === "multiple") {
+              const questions = sampleQuestions[courseName][assessmentType];
+              const question = questions[index];
 
-            correctText = `Should include keywords: ${keywords.join(", ")}`;
+              if (question && question.options) {
+                let selectedOptionIndex = -1;
+                for (let i = 0; i < question.options.length; i++) {
+                  if (question.options[i] === answer.answer) {
+                    selectedOptionIndex = i;
+                    break;
+                  }
+                }
+
+                isCorrect = selectedOptionIndex === correctAnswer.correct;
+                correctText = question.options[correctAnswer.correct];
+                score = isCorrect ? 1 : 0;
+              }
+            }
+          }
+          // ==================== TEXT RESPONSE ====================
+          else if (answer.type === "text" && correctAnswersForAssessment) {
+            const correctAnswer = correctAnswersForAssessment[index];
+            if (correctAnswer && correctAnswer.type === "text") {
+              const answerText = answer.answer.toLowerCase();
+              const keywords = correctAnswer.keywords || [];
+              const keywordMatches = keywords.filter((keyword) =>
+                answerText.includes(keyword.toLowerCase())
+              ).length;
+
+              const keywordPercent =
+                keywords.length > 0 ? keywordMatches / keywords.length : 0;
+
+              if (keywordPercent >= 0.6) {
+                isCorrect = true;
+                score = 1;
+              } else if (keywordPercent >= 0.3) {
+                isCorrect = "partial";
+                score = 0.5;
+              } else {
+                isCorrect = false;
+                score = 0;
+              }
+
+              correctText = `Should include keywords: ${keywords.join(", ")}`;
+            }
           }
 
           correctCount += score;
@@ -3477,7 +5345,7 @@
           corrections.push({
             questionIndex: index,
             questionText: answer.question,
-            studentAnswer: answer.answer,
+            studentAnswer: displayAnswer,
             correctAnswer: correctText,
             isCorrect: isCorrect,
             score: score,
@@ -3611,24 +5479,71 @@
                     ? "Partially Correct"
                     : "Incorrect";
 
-                correctionItem.innerHTML = `
+                let detailsHTML = `
                   <div class="question-review">
                     ${statusIcon} Question ${index + 1}: ${statusText} (${
                   correction.score
                 }/1 point)
                   </div>
                   <p><strong>Question:</strong> ${correction.questionText}</p>
-                  <div class="answer-comparison">
-                    <div class="your-answer">
-                      <strong>Your Answer:</strong><br>
-                      ${correction.studentAnswer}
-                    </div>
-                    <div class="correct-answer">
-                      <strong>Correct Answer:</strong><br>
-                      ${correction.correctAnswer}
-                    </div>
-                  </div>
                 `;
+
+                // Handle different question types
+                if (correction.type === "reading") {
+                  detailsHTML += `
+                    <div class="type-badge reading-badge">📖 READING COMPREHENSION</div>
+                    <div class="answer-comparison">
+                      <div class="feedback-box">
+                        ${correction.correctAnswer}
+                      </div>
+                      <div class="your-answer-box">
+                        <strong>Your Answers:</strong><br>
+                        ${correction.studentAnswer}
+                      </div>
+                    </div>
+                  `;
+                } else if (correction.type === "speaking") {
+                  detailsHTML += `
+                    <div class="type-badge speaking-badge">🎤 SPEAKING ASSESSMENT</div>
+                    <div class="answer-comparison">
+                      <div class="feedback-box">
+                        ${correction.correctAnswer}
+                      </div>
+                      <div class="your-answer-box">
+                        <strong>Recording Status:</strong><br>
+                        ${correction.studentAnswer}
+                      </div>
+                    </div>
+                  `;
+                } else if (correction.type === "listening") {
+                  detailsHTML += `
+                    <div class="type-badge listening-badge">🎧 LISTENING COMPREHENSION</div>
+                    <div class="answer-comparison">
+                      <div class="feedback-box">
+                        ${correction.correctAnswer}
+                      </div>
+                      <div class="your-answer-box">
+                        <strong>Your Answers:</strong><br>
+                        ${correction.studentAnswer}
+                      </div>
+                    </div>
+                  `;
+                } else {
+                  detailsHTML += `
+                    <div class="answer-comparison">
+                      <div class="your-answer">
+                        <strong>Your Answer:</strong><br>
+                        ${correction.studentAnswer}
+                      </div>
+                      <div class="correct-answer">
+                        <strong>Correct Answer:</strong><br>
+                        ${correction.correctAnswer}
+                      </div>
+                    </div>
+                  `;
+                }
+
+                correctionItem.innerHTML = detailsHTML;
 
                 correctionsList.appendChild(correctionItem);
 
@@ -3766,17 +5681,62 @@
               : "Incorrect";
           doc.text(`[${statusText}]`, 170, yPosition + 1);
 
-          yPosition += 8;
+          // Add question type badge
+          const typeLabel = `[${correction.type.toUpperCase()}]`;
+          doc.setFontSize(9);
+          doc.setTextColor(100, 100, 150);
+          doc.text(typeLabel, 35, yPosition + 6);
+
+          yPosition += 12;
 
           // Question text (truncated if too long)
           doc.setFont("helvetica", "normal");
+          doc.setFontSize(10);
+          doc.setTextColor(...textColor);
           const questionText =
             correction.questionText.length > 60
               ? correction.questionText.substring(0, 60) + "..."
               : correction.questionText;
           doc.text(questionText, 35, yPosition);
 
-          yPosition += 12;
+          yPosition += 6;
+
+          // Type-specific details
+          if (correction.type === "reading") {
+            doc.setFontSize(9);
+            doc.setFont("helvetica", "bold");
+            doc.setTextColor(80, 140, 200);
+            doc.text("📖 Reading Comprehension Response:", 35, yPosition);
+            yPosition += 4;
+            doc.setFont("helvetica", "normal");
+            doc.setTextColor(100, 100, 100);
+            const answerPreview = correction.studentAnswer.substring(0, 50);
+            doc.text(answerPreview, 40, yPosition);
+            yPosition += 5;
+          } else if (correction.type === "speaking") {
+            doc.setFontSize(9);
+            doc.setFont("helvetica", "bold");
+            doc.setTextColor(200, 100, 100);
+            doc.text("🎤 Speaking Response:", 35, yPosition);
+            yPosition += 4;
+            doc.setFont("helvetica", "normal");
+            doc.setTextColor(100, 100, 100);
+            doc.text(correction.studentAnswer, 40, yPosition);
+            yPosition += 5;
+          } else if (correction.type === "listening") {
+            doc.setFontSize(9);
+            doc.setFont("helvetica", "bold");
+            doc.setTextColor(150, 100, 200);
+            doc.text("🎧 Listening Comprehension Response:", 35, yPosition);
+            yPosition += 4;
+            doc.setFont("helvetica", "normal");
+            doc.setTextColor(100, 100, 100);
+            const answerPreview = correction.studentAnswer.substring(0, 50);
+            doc.text(answerPreview, 40, yPosition);
+            yPosition += 5;
+          }
+
+          yPosition += 6;
         });
 
         // Footer with signature area
@@ -3887,38 +5847,414 @@
         questions.forEach((questionDiv, index) => {
           const questionText =
             questionDiv.querySelector(".question-text").textContent;
+          const questionType = questionDiv.getAttribute("data-type");
           let answer = "";
+          let type = "text";
 
-          // Check for multiple choice answer
-          const selectedOption = questionDiv.querySelector(
-            'input[type="radio"]:checked'
-          );
-          if (selectedOption) {
-            const optionText =
-              selectedOption.parentNode.querySelector("span").textContent;
-            answer = optionText;
-          }
-
-          // Check for text answer
-          const textarea = questionDiv.querySelector("textarea");
-          if (textarea && textarea.value.trim()) {
-            answer = textarea.value.trim();
-          }
-
-          if (answer) {
-            answers.push({
-              question: questionText,
-              answer: answer,
-              type: selectedOption ? "multiple" : "text",
+          // READING COMPREHENSION
+          if (questionType === "reading") {
+            const readingAnswers = [];
+            const readingInputs = questionDiv.querySelectorAll('input[type="radio"][data-correct]');
+            let answerFound = false;
+            readingInputs.forEach((input) => {
+              if (input.checked) {
+                readingAnswers.push({
+                  question: input.name,
+                  answer: input.value,
+                  correct: input.getAttribute("data-correct")
+                });
+                answerFound = true;
+              }
             });
+            if (answerFound) {
+              answers.push({
+                question: questionText,
+                answer: JSON.stringify(readingAnswers),
+                type: "reading"
+              });
+            }
+          }
+          // SPEAKING
+          else if (questionType === "speaking") {
+            const recordingInput = questionDiv.querySelector(".recording-input");
+            if (recordingInput && recordingInput.value) {
+              answers.push({
+                question: questionText,
+                answer: recordingInput.value,
+                type: "speaking",
+                recordingStatus: "recorded"
+              });
+            } else {
+              answers.push({
+                question: questionText,
+                answer: "No recording provided",
+                type: "speaking",
+                recordingStatus: "not-recorded"
+              });
+            }
+          }
+          // LISTENING
+          else if (questionType === "listening") {
+            const listeningAnswers = [];
+            const listeningInputs = questionDiv.querySelectorAll('input[type="radio"][data-correct]');
+            let answerFound = false;
+            listeningInputs.forEach((input) => {
+              if (input.checked) {
+                listeningAnswers.push({
+                  question: input.name,
+                  answer: input.value,
+                  correct: input.getAttribute("data-correct")
+                });
+                answerFound = true;
+              }
+            });
+            if (answerFound) {
+              answers.push({
+                question: questionText,
+                answer: JSON.stringify(listeningAnswers),
+                type: "listening"
+              });
+            }
+          }
+          // MULTIPLE CHOICE
+          else if (questionType === "multiple") {
+            const selectedOption = questionDiv.querySelector(
+              'input[type="radio"]:checked'
+            );
+            if (selectedOption) {
+              const optionText =
+                selectedOption.parentNode.querySelector("span").textContent;
+              answer = optionText;
+              type = "multiple";
+              answers.push({
+                question: questionText,
+                answer: answer,
+                type: type,
+              });
+            }
+          }
+          // TEXT RESPONSE
+          else {
+            const textarea = questionDiv.querySelector("textarea");
+            if (textarea && textarea.value.trim()) {
+              answer = textarea.value.trim();
+              type = "text";
+              answers.push({
+                question: questionText,
+                answer: answer,
+                type: type,
+              });
+            }
           }
         });
 
         return answers;
       }
 
-      console.log("✅ InterroPlatform loaded successfully!");
-      console.log("📚 Select a course to begin your assessment");
+      // ==================== Advanced Features System ====================
+      
+      const advancedFeatures = {
+        // Student Performance Tracking
+        studentData: {
+          get stats() {
+            return JSON.parse(localStorage.getItem('studentStats')) || {
+              totalAttempts: 0,
+              totalCorrect: 0,
+              averageScore: 0,
+              courseProgress: {},
+              completedAssessments: [],
+              bookmarks: [],
+              achievements: [],
+              performanceByDifficulty: { easy: 0, medium: 0, hard: 0 }
+            };
+          },
+          set stats(value) {
+            localStorage.setItem('studentStats', JSON.stringify(value));
+          },
+          updateStats(correct, total, courseId, difficulty) {
+            const stats = this.stats;
+            stats.totalAttempts++;
+            stats.totalCorrect += correct;
+            stats.averageScore = (stats.totalCorrect / stats.totalAttempts * 100).toFixed(1);
+            
+            if (!stats.courseProgress[courseId]) {
+              stats.courseProgress[courseId] = { attempts: 0, correct: 0, average: 0 };
+            }
+            stats.courseProgress[courseId].attempts++;
+            stats.courseProgress[courseId].correct += correct;
+            stats.courseProgress[courseId].average = 
+              (stats.courseProgress[courseId].correct / stats.courseProgress[courseId].attempts * 100).toFixed(1);
+            
+            this.stats = stats;
+          }
+        },
+
+        // Bookmarking System
+        bookmarks: {
+          add(questionId) {
+            const stats = advancedFeatures.studentData.stats;
+            if (!stats.bookmarks.includes(questionId)) {
+              stats.bookmarks.push(questionId);
+              advancedFeatures.studentData.stats = stats;
+              const btn = document.querySelector(`[data-question-id="${questionId}"] .bookmark-btn`);
+              if (btn) btn.classList.add('bookmarked');
+            }
+          },
+          remove(questionId) {
+            const stats = advancedFeatures.studentData.stats;
+            stats.bookmarks = stats.bookmarks.filter(id => id !== questionId);
+            advancedFeatures.studentData.stats = stats;
+            const btn = document.querySelector(`[data-question-id="${questionId}"] .bookmark-btn`);
+            if (btn) btn.classList.remove('bookmarked');
+          },
+          isBookmarked(questionId) {
+            return advancedFeatures.studentData.stats.bookmarks.includes(questionId);
+          }
+        },
+
+        // Difficulty Level Filtering
+        difficulty: {
+          currentFilter: 'all',
+          setFilter(level) {
+            this.currentFilter = level;
+            document.querySelectorAll('.difficulty-btn').forEach(btn => {
+              btn.classList.remove('active');
+            });
+            if (level !== 'all') {
+              const activeBtn = document.querySelector(`[data-difficulty="${level}"]`);
+              if (activeBtn) activeBtn.classList.add('active');
+            } else {
+              const allBtn = document.querySelector('[data-difficulty="all"]');
+              if (allBtn) allBtn.classList.add('active');
+            }
+            this.applyFilter();
+          },
+          applyFilter() {
+            const questions = document.querySelectorAll('.question-item');
+            questions.forEach(q => {
+              if (this.currentFilter === 'all' || q.dataset.difficulty === this.currentFilter) {
+                q.style.display = '';
+              } else {
+                q.style.display = 'none';
+              }
+            });
+          }
+        },
+
+        // Achievement/Badge System
+        achievements: [
+          { id: 'first_attempt', name: 'First Step', icon: '🎯', description: 'Complete your first assessment' },
+          { id: 'perfect_score', name: 'Perfect', icon: '⭐', description: 'Score 100% on any assessment' },
+          { id: 'streak_5', name: 'On Fire', icon: '🔥', description: 'Get 5 assessments with 80%+ score' },
+          { id: 'quick_learner', name: 'Quick Learner', icon: '⚡', description: 'Complete assessment in less than 5 minutes' },
+          { id: 'master_course', name: 'Master', icon: '👑', description: 'Average 90%+ in a course' },
+          { id: 'consistency', name: 'Consistent', icon: '📈', description: 'Complete 10 assessments' },
+          { id: 'bookworm', name: 'Bookworm', icon: '📚', description: 'Bookmark 5 questions' },
+          { id: 'comeback', name: 'Comeback', icon: '💪', description: 'Improve score by 30% in same course' }
+        ],
+        checkAchievements(correct, total, courseId, timeSpent) {
+          const stats = advancedFeatures.studentData.stats;
+          const newAchievements = [];
+
+          if (stats.totalAttempts === 1) newAchievements.push('first_attempt');
+          if (correct === total) newAchievements.push('perfect_score');
+          if (timeSpent < 300) newAchievements.push('quick_learner');
+          if (stats.totalAttempts === 10) newAchievements.push('consistency');
+          if (stats.bookmarks.length === 5) newAchievements.push('bookworm');
+
+          newAchievements.forEach(ach => {
+            if (!stats.achievements.includes(ach)) {
+              stats.achievements.push(ach);
+            }
+          });
+          advancedFeatures.studentData.stats = stats;
+          return newAchievements;
+        },
+
+        // Performance Analytics
+        analytics: {
+          generateReport(courseId) {
+            const stats = advancedFeatures.studentData.stats;
+            const courseStats = stats.courseProgress[courseId] || {};
+            
+            return {
+              totalAttempts: courseStats.attempts || 0,
+              averageScore: courseStats.average || 0,
+              weakAreas: ['Grammar', 'Syntax', 'Complex concepts'],
+              strongAreas: ['Basic concepts', 'Reading', 'Listening']
+            };
+          }
+        },
+
+        // Study Recommendations
+        getRecommendations(score) {
+          const recommendations = [];
+          
+          if (score < 60) {
+            recommendations.push('Focus on fundamentals - review basic concepts carefully');
+            recommendations.push('Try easier questions first to build your confidence');
+            recommendations.push('Create a study schedule and practice regularly');
+          }
+          if (score >= 60 && score < 80) {
+            recommendations.push('You\'re making good progress! Try more challenging questions');
+            recommendations.push('Review your bookmarked questions regularly');
+            recommendations.push('Practice weak areas more frequently');
+          }
+          if (score >= 80) {
+            recommendations.push('Excellent performance! You\'re ready for advanced content');
+            recommendations.push('Help others understand these concepts');
+            recommendations.push('Challenge yourself with harder assessments');
+          }
+          
+          return recommendations;
+        }
+      };
+
+      // Initialize advanced features event listeners
+      function initAdvancedFeatures() {
+        // Difficulty filter buttons
+        const difficultyBtns = document.querySelectorAll('.difficulty-btn');
+        difficultyBtns.forEach(btn => {
+          btn.addEventListener('click', function() {
+            advancedFeatures.difficulty.setFilter(this.dataset.difficulty);
+          });
+        });
+
+        // Bookmark buttons
+        document.addEventListener('click', function(e) {
+          if (e.target.closest('.bookmark-btn')) {
+            const questionItem = e.target.closest('.question-item');
+            if (questionItem) {
+              const questionId = questionItem.dataset.questionId;
+              if (advancedFeatures.bookmarks.isBookmarked(questionId)) {
+                advancedFeatures.bookmarks.remove(questionId);
+              } else {
+                advancedFeatures.bookmarks.add(questionId);
+              }
+            }
+          }
+        });
+      }
+
+      // Call initialization
+      initAdvancedFeatures();
+
+      // Hook into existing showCorrectionResults to add advanced features
+      const originalShowCorrectionResults = showCorrectionResults;
+      window.showCorrectionResults = async function(results, studentName, studentEmail, courseName, assessmentType) {
+        // Update stats before showing results
+        advancedFeatures.studentData.updateStats(results.correctCount, results.totalQuestions, courseName);
+        const timeSpent = Math.floor((new Date() - window.assessmentStartTime) / 1000);
+        const newAchievements = advancedFeatures.checkAchievements(results.correctCount, results.totalQuestions, courseName, timeSpent);
+        
+        // Add achievement notifications if any
+        if (newAchievements.length > 0) {
+          const achievementNotif = document.createElement('div');
+          achievementNotif.style.cssText = 'position: fixed; top: 20px; right: 20px; background: linear-gradient(135deg, #10b981, #059669); color: white; padding: 1.5rem; border-radius: 10px; z-index: 10000; animation: slideInRight 0.5s ease-out;';
+          achievementNotif.innerHTML = `<strong>🎉 Achievement Unlocked!</strong><br/>${newAchievements.map(a => advancedFeatures.achievements.find(x => x.id === a)?.name).join(', ')}`;
+          document.body.appendChild(achievementNotif);
+          setTimeout(() => achievementNotif.remove(), 3000);
+        }
+        
+        // Update analytics display
+        updateAnalyticsDisplay();
+        
+        // Call original function
+        return originalShowCorrectionResults(results, studentName, studentEmail, courseName, assessmentType);
+      };
+
+      // Update Analytics Display
+      function updateAnalyticsDisplay() {
+        const stats = advancedFeatures.studentData.stats;
+        const analyticsSection = document.getElementById('analytics-section');
+        
+        if (analyticsSection) {
+          analyticsSection.style.display = 'block';
+          
+          // Update stat cards
+          document.getElementById('stat-attempts').textContent = stats.totalAttempts;
+          document.getElementById('stat-average').textContent = (stats.averageScore || 0) + '%';
+          document.getElementById('stat-correct').textContent = stats.totalCorrect;
+          document.getElementById('stat-bookmarks').textContent = stats.bookmarks.length;
+          
+          // Update progress bar
+          const avgBar = document.getElementById('avg-bar');
+          if (avgBar) avgBar.style.width = (stats.averageScore || 0) + '%';
+          
+          // Update course progress
+          const courseProgressList = document.getElementById('course-progress-list');
+          if (courseProgressList) {
+            courseProgressList.innerHTML = '';
+            for (const [courseId, progress] of Object.entries(stats.courseProgress)) {
+              const progressItem = document.createElement('div');
+              progressItem.className = 'progress-item';
+              progressItem.innerHTML = `
+                <div class="progress-icon ${progress.attempts > 0 ? 'completed' : 'pending'}">
+                  ${progress.attempts > 0 ? '✓' : '-'}
+                </div>
+                <div class="progress-info">
+                  <div class="progress-name">${courseId}</div>
+                  <div class="progress-detail">${progress.attempts} attempt(s) • ${(progress.average || 0).toFixed(1)}% average</div>
+                </div>
+              `;
+              courseProgressList.appendChild(progressItem);
+            }
+          }
+          
+          // Update achievements
+          const achievementsContainer = document.getElementById('achievements-container');
+          if (achievementsContainer) {
+            achievementsContainer.innerHTML = '';
+            advancedFeatures.achievements.forEach(achievement => {
+              const badge = document.createElement('div');
+              badge.className = 'achievement-badge ' + (stats.achievements.includes(achievement.id) ? 'unlocked' : 'locked');
+              badge.innerHTML = `
+                <div class="badge-icon">${achievement.icon}</div>
+                <div style="font-weight: 600;">${achievement.name}</div>
+                <div style="font-size: 0.75rem; opacity: 0.8;">${achievement.description}</div>
+              `;
+              achievementsContainer.appendChild(badge);
+            });
+          }
+          
+          // Update recommendations
+          const recommendationsContainer = document.getElementById('recommendations-container');
+          if (recommendationsContainer && stats.averageScore > 0) {
+            const recommendations = advancedFeatures.getRecommendations(stats.averageScore);
+            recommendationsContainer.innerHTML = `
+              <div class="study-recommendation">
+                <div class="recommendation-title">📚 Study Recommendations</div>
+                <ul class="recommendation-list">
+                  ${recommendations.map(r => `<li>${r}</li>`).join('')}
+                </ul>
+              </div>
+            `;
+          }
+        }
+      }
+
+      // Tab switching functionality
+      document.querySelectorAll('.feature-tab').forEach(tab => {
+        tab.addEventListener('click', function() {
+          const tabName = this.dataset.tab;
+          
+          // Remove active from all tabs and contents
+          document.querySelectorAll('.feature-tab').forEach(t => t.classList.remove('active'));
+          document.querySelectorAll('.feature-content').forEach(c => c.classList.remove('active'));
+          
+          // Add active to current tab and content
+          this.classList.add('active');
+          const content = document.querySelector(`[data-tab-content="${tabName}"]`);
+          if (content) content.classList.add('active');
+        });
+      });
+
+      // Initial display update
+      updateAnalyticsDisplay();
+
+      console.log("✅ InterroPlatform loaded successfully with Advanced Features!");
+      console.log("📚 Features: Performance Tracking, Bookmarks, Achievements, Analytics");
     </script>
   </body>
 </html>
+
